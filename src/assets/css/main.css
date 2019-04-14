@@ -1,0 +1,176 @@
+html {
+  font-family: "Fredoka One", sans-serif !important;
+  min-height: 100%;
+}
+
+body {
+ /* background-color: #329f96;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+    margin: 0px;
+  font-size: 1rem;
+  min-height: 100vh;
+}
+
+a.menu-link {
+  color: #000000;
+  font-size: 18px;
+  text-align: left;
+  border-radius: 0px !important;
+  height: 60px;
+  line-height: 60px;
+  font-weight: 600;
+  padding: 0px 14px !important;
+}
+
+a.active {
+  background-color: #329f96 !important;
+  color: #ffffff !important;
+}
+
+.menu-link-icon {
+  font-size: 35px;
+  height: auto !important;
+  width: auto !important;
+  margin-right: 20px;
+}
+.menu-link-icon.active {
+  color: #ffffff !important;
+}
+
+.mat-header-cell {
+  color: #263238 !important;
+}
+
+app-root {
+  width: 100%;
+}
+
+app-dashboard {
+  width: 100%;
+}
+
+app-rules-list {
+  width: 100%;
+}
+
+app-rule-details {
+  width: 100%;
+}
+
+app-rule-test {
+  width: 100%;
+}
+
+app-login {
+  width: 100%;
+}
+
+app-complex-rule-details {
+  width: 100%;
+}
+
+app-grid-rule-details {
+  width: 100%;
+}
+
+app-settings {
+  width: 100%;
+}
+
+.filler {
+  flex: 1 1 auto;
+}
+
+.form-header {
+  color: #000000;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+}
+
+.mat-menu-icon {
+  color: #00877b;
+}
+
+mat-icon {
+  color: #616161;
+}
+
+.action-button {
+  color: #329f96 !important;
+  background-color: #eeeeee !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+}
+
+.action-button:hover {
+  background-color: #bdbdbd !important;
+}
+
+.mat-icon-action {
+  color: #329f96 !important;
+}
+
+.form-card {
+  padding: 0px !important;
+  border: 0px;
+  box-shadow: none !important;
+}
+
+.list-item-content div.mat-list-item-content {
+  padding: 4px 0px !important;
+}
+
+.list-form-select-field {
+  border: 1px solid #dedede;
+  padding: 4px 2px;
+  box-sizing: border-box;
+  margin-right: 2px;
+  height: 29px;
+  border-radius: 4px;
+}
+
+.list-form-field .mat-form-field-infix {
+  border: 1px solid #dedede;
+  border-radius: 4px;
+}
+
+.list-form-field .mat-form-field-wrapper {
+  padding-bottom: 0px !important;
+}
+
+.list-form-field .mat-form-field-wrapper .mat-form-field-underline {
+  height: 0px !important;
+}
+
+.list-form-field .mat-form-field-ripple {
+  opacity: 0 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+th.mat-header-cell {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.mat-button,
+.mat-flat-button {
+  border-radius: 4px !important;
+  font-size: 16px !important;
+}
+
+.mat-stroked-button {
+  border-radius: 4px !important;
+  font-size: 16px !important;
+}
+
+.no-wrap {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

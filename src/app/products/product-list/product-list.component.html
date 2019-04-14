@@ -1,0 +1,64 @@
+
+<!-- <input  placeholder="search text goes here"> -->
+<div style="text-align: center" >
+  <div class="sample">
+<div class="a1" style="background-color: #fff">
+  <span class="mr-2">All Products</span>
+  <span class="mr-2">promotions</span>
+  <span class="mr-2">promotions</span>
+  <span class="mr-2">promotions</span>
+  </div>
+</div>
+</div>
+
+<div class="col-md-12">
+  <h1>Products</h1>
+  <mat-form-field class="example-full-width-input">
+    <input matInput placeholder="Serach for product" [(ngModel)]="searchText">
+  </mat-form-field>
+</div>
+<div class="col-md-12" *ngFor="let productJson of productJson | filter : searchText;let i=index" style="padding-top:15px !important">
+  <mat-card [ngStyle]="{'border-left-color':productJson.color}">
+      <div class="row">
+      <div class="col-md-3">
+          <img  style="width: 200px;height: 200px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg">
+        </div>
+    <div class="col-md-8">
+      <table matSort>
+        <tr>
+          <th mat-sort-header="name">Product Name/Code/Pack</th>
+          <th mat-sort-header="calories">Quantity</th>
+          <th mat-sort-header="fat">TradePrice</th>
+          <th mat-sort-header="fat">savings</th>
+          <th mat-sort-header="carbs">Net price</th>
+        </tr>
+        <tr>
+          <td><b>{{productJson.productName}}</b></td>
+          <td><mat-form-field class="example-full-width">
+              <input matInput placeholder="Favorite food" [(ngModel)]="productJson.quantity" value="Sushi">
+            </mat-form-field> {{binding}}</td>
+          <td>{{productJson.trideprice}}</td>
+          <td>{{productJson.savings}}</td>
+          <td>{{productJson.netprice}}</td>
+        </tr>
+      </table>
+      <div class="row">
+          <div class="col-md-3">
+              {{productJson.productInformation}}
+            </div>
+            <div class="col-md-6">
+                <button mat-stroked-button color="primary">Click here to know more info</button>
+              </div>
+        
+      </div>
+      
+      <div *ngFor="let discount of productJson.discount"><b>{{discount}}</b></div>
+    </div>
+    </div>
+    <div >
+        <button class="buttonalign" mat-flat-button color="primary" (click)="addCart(productJson,i)">Add to cart</button>
+  
+    </div>
+  </mat-card>
+</div>
+<button (click)="clickme()">Testing Purpose  -- Naigating to cart page</button> 

@@ -1,0 +1,12 @@
+.example-container {
+  background-color: #4e342e !important;
+  border-radius: 2px;
+  color: aliceblue;
+  width: 200px;
+  padding-top: 20px;
+}
+
+.example-card {
+  max-width: 400px;
+  min-width: 200px;
+}

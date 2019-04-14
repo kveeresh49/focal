@@ -1,0 +1,22 @@
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.mat-tab-label-container {
+    align-items: center !important;
+    margin-left: 27% !important;
+}
+
+
+.mat-tab-header {
+     border-bottom: none !important; 
+}
+
+/*
+app-navigation-bar .mat-drawer-content {
+     overflow: hidden !important;
+     height: -webkit-fill-available !important;
+}
+*/

@@ -1,0 +1,84 @@
+<div
+  fxLayout="column"
+  fxFlex="nogrow"
+  fxLayoutAlign="start stretch"
+  [class]="sideNavClass"
+  *ngIf="isAuthenticated()"
+  style=""
+>
+  <mat-toolbar
+    color="primary"
+    class="mat-toolbar"
+    style="padding:0px; background-color:#FFFFFF;"
+  >
+    <img
+      src="./assets/images/msd-logo-inventing-for-life.png"
+      alt="MSD Logo"
+      style="height:50px; width:200px"
+    />
+  </mat-toolbar>
+  <mat-divider
+    style="border-top-width: 2px;border-top-color: #329f96;"
+  ></mat-divider>
+  <div style="margin-top: 12px">
+    <a
+      routerLink="/dashboard"
+      class="menu-link"
+      [ngClass]="{ active: path.indexOf('/dashboard') != -1 }"
+      mat-button
+      style="width: 100%"
+    >
+      <mat-icon
+        aria-label="More"
+        class="mat-menu-icon menu-link-icon"
+        [ngClass]="{ active: path.indexOf('/dashboard') != -1 }"
+        >dashboard</mat-icon
+      >{{ language?.labels.dashboard }}
+    </a>
+    <a
+      routerLink="/rules/grid"
+      class="menu-link"
+      [ngClass]="{ active: path.indexOf('/grid') != -1 }"
+      mat-button
+      style="width: 100%"
+    >
+      <mat-icon
+        aria-label="More"
+        class="mat-menu-icon menu-link-icon"
+        [ngClass]="{ active: path.indexOf('/grid') != -1 }"
+        >grid_on</mat-icon
+      >
+      {{ language?.labels.gridRules }}
+    </a>
+    <a
+      routerLink="/rules/complex"
+      class="menu-link"
+      [ngClass]="{ active: path.indexOf('/complex') != -1 }"
+      mat-button
+      style="width: 100%"
+    >
+      <mat-icon
+        aria-label="More"
+        class="mat-menu-icon menu-link-icon"
+        [ngClass]="{ active: path.indexOf('/complex') != -1 }"
+        >polymer</mat-icon
+      >
+      {{ language?.labels.complexRules }}
+    </a>
+    <a
+      routerLink="/settings"
+      class="menu-link"
+      [ngClass]="{ active: path.indexOf('/settings') != -1 }"
+      mat-button
+      style="width: 100%"
+    >
+      <mat-icon
+        aria-label="More"
+        class="mat-menu-icon menu-link-icon"
+        [ngClass]="{ active: path.indexOf('/settings') != -1 }"
+        >settings</mat-icon
+      >
+      {{ language?.labels.settings }}
+    </a>
+  </div>
+</div>

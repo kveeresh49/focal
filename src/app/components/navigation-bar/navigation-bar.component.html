@@ -1,0 +1,152 @@
+<!-- <mat-sidenav-container class="sidenav-container" *ngIf="isAuthenticated()"> -->
+  <!-- <mat-sidenav-content >
+    <mat-toolbar color="primary" class="mat-toolbar">
+          <img
+          src="./assets/images/iorder_header.png"
+          alt="MSD Logo"/>
+        <span class=label-iorder>{{language?.labels.eventsGlobal}}</span>
+        <ng-container >
+          <div style="margin-left: 22%; color:#ffff">
+            <label>
+                <img
+                src="./assets/images/header_Dashboard.png"
+                alt="Dashboard Logo"/>
+              <span class="divalign">Dashboard</span>
+              
+            </label>
+             
+            <label style="margin-left: 5%; color:#ffff">
+                <img
+                src="./assets/images/header_products.png"
+                alt="Products"/>
+                <button mat-button [matMenuTriggerFor]="aboveMenu">Products</button>
+              <mat-menu #aboveMenu="matMenu" yPosition="above">
+                  <button mat-menu-item>Item 1</button>
+                  <button mat-menu-item>Item 2</button>
+                </mat-menu>
+            </label>
+
+            <label style="margin-left: 5%; color:#ffff">
+                <img
+                src="./assets/images/header_orders.png"
+                alt="orders Logo"/>
+              <span class="divalign">Orders</span>
+            </label>
+            
+          </div>
+          
+       
+           
+        </ng-container>
+        <ng-container >
+          <div class="col-md-12" style="margin-left: 34%;">
+             <label>
+                <img
+                src="./assets/images/header_cart.png"
+                alt="orders Logo"/>
+             </label>
+             <label style="margin-left: 3%;">
+                <img
+                src="./assets/images/header_user.png"
+                alt="orders Logo"/>
+             </label>
+              
+            </div>
+          </ng-container> -->
+        <!-- <div style="align-items: center">
+               
+                <img
+                src="./assets/images/header_products.png"
+                alt="MSD Logo"/>
+              <span class=label-iorder>{{language?.labels.eventsGlobal}}</span>
+              <span class=label-iorder>{{language?.labels.eventsGlobal}}</span>
+              <img
+              src="./assets/images/header_orders.png"
+              alt="MSD Logo"/>
+            <span class=label-iorder>{{language?.labels.eventsGlobal}}</span>
+           
+          </div> -->
+      
+
+      
+      
+
+
+      <!-- <span class="filler"></span>
+      <button mat-icon-button matTooltip={{language?.labels.search}}>
+        <mat-icon aria-label="More" class="mat-menu-icon">search</mat-icon>
+      </button> -->
+      <!-- <button mat-icon-button matTooltip="Notifications">
+        <mat-icon aria-label="More" class="mat-menu-icon">notification_importants</mat-icon>
+      </button> -->
+      <!-- <button mat-icon-button matTooltip={{language?.labels.more}}>
+        <mat-icon aria-label="More" [matMenuTriggerFor]="appMenu" class="mat-menu-icon">settings</mat-icon>
+      </button> -->
+      <!-- <mat-menu>
+        <ng-template matMenuContent let-name="name">
+          <button mat-menu-item >dsdsds</button>
+          <button mat-menu-item >{{language?.labels.language}}</button>
+        </ng-template>
+      </mat-menu> -->
+      <!-- <mat-menu #languages="matMenu">
+        <button mat-menu-item (click)="changeLanguage('en')">{{language?.labels.english}}</button>
+        <button mat-menu-item (click)="changeLanguage('de')">{{language?.labels.german}}</button>
+      </mat-menu>
+      <button mat-icon-button matTooltip={{language?.labels.menu}}>
+        <mat-icon aria-label="More" [matMenuTriggerFor]="appMenu1" class="mat-menu-icon">person</mat-icon>
+      </button>
+      <mat-menu #appMenu1="matMenu">
+        <ng-template matMenuContent let-name="name">
+          <button mat-menu-item (click)="logout()">{{language?.labels.logout}} {{name}}</button>
+        </ng-template>
+      </mat-menu> -->
+    <!-- </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<nav class="navbar navbar-light bg-light col-lg-12 col-md-12 col-sm-12" style="background-color: #26a69a !important;">
+    <a class="navbar-brand" href="#" class="col-md-2 col-sm-2">
+        <img class="mr-2" 
+        src="./assets/images/iorder_header.png"
+        alt="MSD Logo"/> 
+        <span style="color: #fff">iOrder</span>
+    </a>
+    <div class="col-md-6 col-sm-6" style="text-align: left;color:#fff">
+        <label class="col-md-3 col-sm-3 col-lg-3">
+            <img class="mr-2"
+            src="./assets/images/header_Dashboard.png"
+            alt="Dashboard Logo"/>
+          <span>Dashboard</span>
+          
+        </label>
+         
+        <label class="col-md-3 col-sm-3 col-lg-3">
+            <img class="mr-2"
+            src="./assets/images/header_products.png"
+            alt="Products"/>
+        <span>Products</span>
+        
+        </label>
+
+        <label class="col-md-3 col-sm-3 col-lg-3">
+            <img class="mr-2"
+            src="./assets/images/header_orders.png"
+            alt="orders Logo"/>
+          <span>Orders</span>
+        </label>
+        
+      </div>
+      <div>
+          <label class="mr-5">
+             <img
+             src="./assets/images/header_cart.png"
+             alt="orders Logo"/>
+          </label>
+          <label class="mr-1">
+             <img
+             src="./assets/images/header_user.png"
+             alt="orders Logo"/>
+          </label>
+         </div>
+  </nav>

@@ -1,0 +1,75 @@
+<div style="display:grid; grid-template-columns: 1fr 150px; grid-gap: 10px;">
+  <div style="justify-self: end; align-self: center">
+    <!-- <button
+      id="btnSearch"
+      mat-flat-button
+      (click)="getRules(ruleType, searchText)"
+      matTooltip="Search rules"
+      matTooltipPosition="above"
+      class="action-button"
+    > -->
+      <!-- <mat-icon class="mat-icon-action">search -coppy</mat-icon>Search -->
+    <!-- </button> -->
+  </div>
+</div>
+<div
+  *ngIf="rulesArrList && rulesArrList.length == 0 && searchText !== ''"
+  fxLayoutAlign="center center"
+  class="error-message"
+>
+  <b>No rules found matching the search text </b>
+</div>
+
+<div>
+  <mat-nav-list color="primary">
+    <mat-list-item
+      *ngFor="
+        let rule of (rulesArrList
+          | paginate: { itemsPerPage: 20, currentPage: p })
+      "
+      class="rules-bar"
+      color="primary"
+      (click)="loadRuleDetails(ruleType, rule)"
+      style="margin-bottom: 2px"
+    >
+      <mat-icon mat-list-icon>group_work</mat-icon>
+      <h1 mat-line>
+        <span
+          class="nobreak"
+          style="overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;"
+          >{{ rule.ruleName }}</span
+        >
+      </h1>
+      <p mat-line class="demo-2">
+        <span
+          class="nobreak"
+          style="overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;"
+          >{{ rule.ruleDescription }}</span
+        >
+      </p>
+      <button mat-icon-button (click)="openDeleteRuleDialog($event, rule)">
+        <mat-icon class="mat-menu-icon">delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <!-- To display the loader image -->
+  <div
+    class="example-loading-shade"
+    fxLayoutAlign="center center"
+    *ngIf="!rulesArrList && rulesArrList.length < 1"
+  >
+    <span> <mat-spinner layout-align="center"></mat-spinner> </span>
+  </div>
+  <!--  End  -->
+
+  <!--For pagination-->
+  <span style="text-align: right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </span>
+  <!-- <span style="text-align: right">  <pagination-controls (pageChange)="p = $event"></pagination-controls></span>-->
+</div>

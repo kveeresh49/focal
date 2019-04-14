@@ -1,0 +1,13 @@
+.side-nav-container {
+  background-color: #ffffff !important;
+  border-radius: 0px;
+  min-height: calc(100vh - 68px);
+  transition-duration: 50ms;
+  transition: all 0.25s ease;
+  width: 240px;
+  left: 0px;
+}
+
+.side-nav-container-hide {
+  width: 60px;
+}

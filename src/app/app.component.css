@@ -1,0 +1,3 @@
+.main-container-wrapper {
+    min-height: calc(100vh - 114px);
+}

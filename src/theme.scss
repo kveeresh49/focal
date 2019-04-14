@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config( //$font-family: 'Titillium Web'
+//$font-family: 'Fredoka One'
+$font-family: 'Montserrat' //$font-family: 'Alegreya Sans SC'
+);
+@include mat-core($custom-typography);
+$custom-theme-primary: mat-palette($mat-teal, 400);
+$custom-theme-accent: mat-palette($mat-blue-grey, A200, A100);
+$custom-theme-warn: mat-palette($mat-red);
+$custom-theme: mat-light-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+@include angular-material-theme($custom-theme);

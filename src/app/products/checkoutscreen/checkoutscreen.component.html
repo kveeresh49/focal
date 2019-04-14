@@ -1,0 +1,46 @@
+<mat-tab-group dynamicHeight>
+  <div class="col-md-12">
+      <mat-tab label="Order Summary">
+          <div class="col-md-12" *ngFor="let productJson of productJson;let i=index" style="padding-top:15px !important">
+              <mat-card>
+                  <div class="row">
+                  <div class="col-md-3">
+                      <img  style="width: 200px;height: 200px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg">
+                    </div>
+                <div class="col-md-8">
+                  <table matSort>
+                    <tr>
+                      <th mat-sort-header="name">Product Name/Code/Pack</th>
+                      <th mat-sort-header="calories">Quantity</th>
+                      <th mat-sort-header="fat">TradePrice</th>
+                      <th mat-sort-header="fat">savings</th>
+                      <th mat-sort-header="carbs">Net price</th>
+                    </tr>
+                    <tr>
+                      <td><b>{{productJson.productName}}</b></td>
+                      <td><mat-form-field class="example-full-width">
+                          <input matInput placeholder="Favorite food" [(ngModel)]="productJson.quantity">
+                        </mat-form-field></td>
+                      <td>{{productJson.trideprice}}</td>
+                      <td>{{productJson.savings}}</td>
+                      <td>{{productJson.netprice}}</td>
+                    </tr>
+                  </table>
+                </div>
+                </div>
+              </mat-card>
+            </div>
+        </mat-tab>
+        <mat-tab label="Select Wholesaler">
+          <div class="example-large-box mat-elevation-z4">
+            Large content
+          </div>
+        </mat-tab>
+        <mat-tab label="Select Wholesaler">
+          <div class="example-large-box mat-elevation-z4">
+            Place order
+          </div>
+        </mat-tab>
+  </div>
+  
+</mat-tab-group>
