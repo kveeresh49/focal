@@ -1,7 +1,7 @@
 export const productlistJson = [
 
     {
-        productName:'Acedasine-Test123',
+        productName:'Acedasine',
         quantity:10,
         trideprice:500,
         savings:10,
@@ -11,7 +11,7 @@ export const productlistJson = [
         color:'red'
     },
     {
-        productName:'Affrin Text 123',
+        productName:'Affrin',
         quantity:20,
         trideprice:1000,
         savings:10,
@@ -22,7 +22,7 @@ export const productlistJson = [
 
     },
     {
-        productName:'Crosin 123',
+        productName:'Crosin',
         quantity:20,
         trideprice:1000,
         savings:10,

@@ -18,3 +18,7 @@ example-small-box, .example-large-box {
   }
 
  
+  .a2{
+    border-left-width: 15px !important;
+    border-radius: 35px;
+  margin-top: 15px }

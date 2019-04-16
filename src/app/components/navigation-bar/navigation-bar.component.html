@@ -125,7 +125,7 @@
             <img class="mr-2"
             src="./assets/images/header_products.png"
             alt="Products"/>
-        <span>Products</span>
+        <span [routerLink]="['/products/products-list']" [routerLinkActive]="['class1']">Products</span>
         
         </label>
 
@@ -133,7 +133,7 @@
             <img class="mr-2"
             src="./assets/images/header_orders.png"
             alt="orders Logo"/>
-          <span>Orders</span>
+          <span >Orders</span>
         </label>
         
       </div>
@@ -141,7 +141,7 @@
           <label class="mr-5">
              <img
              src="./assets/images/header_cart.png"
-             alt="orders Logo"/>
+             alt="orders Logo" [routerLink]="['/products/checkout']" [routerLinkActive]="['class1']">
           </label>
           <label class="mr-1">
              <img
