@@ -22,3 +22,18 @@ example-small-box, .example-large-box {
     border-left-width: 15px !important;
     border-radius: 35px;
   margin-top: 15px }
+
+  table td, .table th {
+    /* padding: .75rem;
+    vertical-align: top; */
+     border-top: none !important; 
+}
+
+.table thead th {
+  border-bottom: none;
+}
+
+.tableAlignment{
+  border-left: 2px solid #dee2e6;;
+    margin-top: 20px;
+}

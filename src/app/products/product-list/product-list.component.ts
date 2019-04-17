@@ -10,14 +10,14 @@ import { Router } from '@angular/router';
 })
 export class ProductListComponent implements OnInit {
 public productJson = [];
-public binding:any;
+public quantity:any;
 public searchText:any;
   constructor(public commonProductService:CommonProductService,private route:Router) { 
     this.productJson = productlistJson.slice();
   }
 
   ngOnInit() {
-
+   // this.productJson.quantity = this.quantity;
   }
 
   addCart(items,index){
