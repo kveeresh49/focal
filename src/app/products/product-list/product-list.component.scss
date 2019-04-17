@@ -20,27 +20,45 @@ table {
 //   border-bottom-right-radius: 50%;
 // }
 
+.row.hh{
+
+}
+
 .a1{
 background-color: #fff;
 border: 1px solid transparent;
-width: 75%;
+width: 85%;
 text-align: center;
 margin: 0 auto;
 border-radius: 25px;
+margin-top: 19px;
 }
 
 .sample {
   border: 1px solid #26a69a;
-  border-radius: 30px;
-  width: 42%;
-  height: 37px;
+  border-radius: 0px 0px 500px 500px;
+  width: 52%;
+  top:-20px;
+  //height: 37px;
   border-bottom-right-radius: 100%;
   border-bottom-left-radius: 100%;
   margin: 0 auto;
   background-color: #26a69a;
+  position:absolute;
+  padding-bottom: 5px;
+  margin-left: 84px; 
   border-top-left-radius: 0;
   /* padding-bottom: 10px; */
   border-top-right-radius: 0;
+}
+
+.active{
+  background-color: #26a69a;
+  border-radius: 10px;
+  padding-right: 7px;
+  padding-left: 7px;
+  color: #ffff;
+  padding-bottom: 1px;
 }
 
 .example-form {

@@ -1,6 +1,67 @@
-<div class="col-md-12">
+
+<div *ngIf="productJson.length ==0" class="mt-10">
+    <div class="alert alert-primary" role="alert">
+        No Products are Acalible
+      </div>
+</div>
+
+
+<!-- <nav aria-label="breadcrumb1 container" style="text-align: center;">
+    <div class="a1" style="background-color: #fff">
+
+        <span class="ml-3 mr-4 breadcrumb-item" (click)="selectedTab='Product'">
+            <span [ngClass]="{active:selectedTab=='Product'}" >
+                REVIEW ORDER
+            </span>
+        </span>
+        <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Promotions';">
+          <span [ngClass]="{active:selectedTab=='Promotions'}">
+              WHOLESALER 
+          </span>  
+          </span>
+          <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Discount'">
+              <span [ngClass]="{active:selectedTab=='Discount'}">
+                  ADDRESS 
+              </span>
+            </span>
+  
+            <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Avalible'">
+                <span [ngClass]="{active:selectedTab=='Avalible'}">
+                    PAYMENT
+                </span>
+              </span>
+        </div>
+  </nav> -->
+
+<div   *ngIf="productJson.length !=0" class="col-md-12">
 <div class="row">
   <div class="col-md-8">
+      <nav aria-label="breadcrumb1 container" style="text-align: center;">
+          <div class="a1" style="background-color: #fff">
+      
+              <span class="ml-3 mr-4 breadcrumb-item" (click)="selectedTab='Product';OrderDetails('product')">
+                  <span [ngClass]="{active:selectedTab=='Product'}" >
+                      REVIEW ORDER
+                  </span>
+              </span>
+              <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Promotions';OrderDetails('promotions')">
+                <span [ngClass]="{active:selectedTab=='Promotions'}">
+                    WHOLESALER 
+                </span>  
+                </span>
+                <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Discount';OrderDetails('Discount')">
+                    <span [ngClass]="{active:selectedTab=='Discount'}">
+                        ADDRESS 
+                    </span>
+                  </span>
+        
+                  <span class="ml-3 mr-4 breadcrumb-item"  (click)="selectedTab='Avalible';OrderDetails('PAYMENT')">
+                      <span [ngClass]="{active:selectedTab=='Avalible'}">
+                          PAYMENT
+                      </span>
+                    </span>
+              </div>
+        </nav>
       <mat-tab-group dynamicHeight>
           <div class="row">
               <div class="col-md-8">

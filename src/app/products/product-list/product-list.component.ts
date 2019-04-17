@@ -30,5 +30,11 @@ public searchText:any;
   clickme(){
     this.route.navigate(['./products/checkout']);
   }
+  onChange(event,items){
+   console.log(items);
+  }
 
+  xyz(){
+console.log('sdsd');
+  }
 }

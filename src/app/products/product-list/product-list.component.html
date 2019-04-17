@@ -1,17 +1,41 @@
 
 <!-- <input  placeholder="search text goes here"> -->
-<div style="text-align: center" >
-  <div class="sample">
-<div class="a1" style="background-color: #fff">
-  <span class="mr-2">All Products</span>
-  <span class="mr-2">promotions</span>
-  <span class="mr-2">promotions</span>
-  <span class="mr-2">promotions</span>
-  </div>
-</div>
+
+
+
+
+<div style="text-align: center;position: relative;margin-left:62px;    margin-left: 154px;
+width: 107%;">
+<span style="width:0;height: 0%;border-bottom: 40px solid #ffff;border-right:40px solid transparent; position: absolute; left:4px;margin-left: 71px">
+</span>
+
+<div class="sample"style="z-index: 10;">
+    <div class="a1" style="background-color: #fff">
+
+      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Product'}" (click)="selectedTab='Product'">
+        All Products
+      </span>
+      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Promotions'}" (click)="selectedTab='Promotions';">
+          Promotions
+        </span>
+        <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Discount'}" (click)="selectedTab='Discount'">
+            No Discount
+          </span>
+
+          <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Avalible'}" (click)="selectedTab='Avalible'">
+              Not Avalible
+            </span>
+      </div>
+
 </div>
 
-<div class="col-md-12">
+</div>
+
+
+
+
+
+<div class="col-md-12" style="padding-top: 48px;">
   <mat-form-field class="example-full-width-input">
     <input matInput placeholder="Serach for product" [(ngModel)]="searchText">
   </mat-form-field>
@@ -33,7 +57,8 @@
             <div class="row">
             <div class="col-md-2"> <img  style="width:100px;height: 100px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
             <div class="col-md-3">{{productJson.productName}}</div>
-            <div class="col-md-1" >{{productJson.quantity}}</div>
+            <div class="col-md-1" ><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
+              mdbInput></div>
             <div class="col-md-2">{{productJson.trideprice}}</div>
             <div class="col-md-1">{{productJson.savings}}</div>
             <div class="col-md-1">{{productJson.netprice}}</div>

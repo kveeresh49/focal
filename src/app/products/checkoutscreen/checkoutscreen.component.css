@@ -16,7 +16,33 @@ example-small-box, .example-large-box {
     height: 300px;
     width: 300px;
   }
+  .breadcrumb-item + .breadcrumb-item::before {
+    font-family: 'FontAwesome';
+    content: ">" !important; 
+  }
 
+  .breadcrumb-item {
+    cursor: pointer;
+  }
+
+
+  .active{
+    background-color: #26a69a;
+    border-radius: 10px;
+    padding-right: 7px;
+    padding-left: 7px;
+    color: #ffff;
+    padding-bottom: 1px;
+  }
+  .breadcrumb1 {
+    display: flex;
+    flex-wrap: wrap;
+    padding: .75rem 1rem;
+    margin-bottom: 1rem;
+    list-style: none;
+    background-color:none;
+    border-radius: .25rem;
+}
  
   .a2{
     border-left-width: 15px !important;

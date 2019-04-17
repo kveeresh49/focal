@@ -18,6 +18,10 @@ export class CheckoutscreenComponent implements OnInit {
   ];
 
   headElements = ['ID', 'First', 'Last', 'Handle'];
+  product: boolean;
+  promotions: boolean;
+  Discount: boolean;
+  PAYMENT: boolean;
 
   constructor(private commonProductService:CommonProductService){
     this.productJson = this.commonProductService.addCartItems;
@@ -25,6 +29,7 @@ export class CheckoutscreenComponent implements OnInit {
 
   ngOnInit() {
 
+    debugger;
     console.log(this.productJson);
 
     if(this.commonProductService.addCartSubject !== undefined) {
@@ -38,6 +43,41 @@ export class CheckoutscreenComponent implements OnInit {
     console.log(items);
     this.productJson.splice(i,1);
     console.log(this.productJson)
+  }
+
+  OrderDetails(item){
+    switch(item){
+
+      case 'product': {
+          this.product = true;
+          this.promotions = false;
+          this.Discount = false;
+          this.PAYMENT = false;
+
+      }
+      case 'promotions': {
+        this.product = false;
+        this.promotions = true;
+        this.Discount = false;
+        this.PAYMENT = false;
+
+    }
+    case 'Discount': {
+      this.product = false;
+      this.promotions = false;
+      this.Discount = true;
+      this.PAYMENT = false;
+
+  }
+  case 'PAYMENT': {
+    this.product = false;
+    this.promotions = false;
+    this.Discount = false;
+    this.PAYMENT = true;
+
+}
+
+    }
   }
 
  }
