@@ -12,17 +12,22 @@ export class ProductListComponent implements OnInit {
 public productJson = [];
 public quantity:any;
 public searchText:any;
+public selectedTab:any;
+
   constructor(public commonProductService:CommonProductService,private route:Router) { 
     this.productJson = productlistJson.slice();
   }
 
   ngOnInit() {
    // this.productJson.quantity = this.quantity;
+   this.selectedTab = 'Product';
+   this.getCalculation();
   }
 
   addCart(items,index){
+    console.log(items);
     this.commonProductService.addCartItems.push(items);
-    this.commonProductService.addCartSubject.next(items);
+    // this.commonProductService.addCartSubject.next(items);
     console.log(items,index);
 
   }
@@ -31,10 +36,17 @@ public searchText:any;
     this.route.navigate(['./products/checkout']);
   }
   onChange(event,items){
-   console.log(items);
+    console.log(items);
+    this.commonProductService.priceClaculation(event,items);
   }
 
-  xyz(){
-console.log('sdsd');
+
+  getCalculation() {
+
+    if(this.productJson.length !== 0){
+      this.commonProductService.savingCalculation(this.productJson);
+    }
   }
+
+ 
 }

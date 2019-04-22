@@ -12,13 +12,13 @@ width: 107%;">
 <div class="sample"style="z-index: 10;">
     <div class="a1" style="background-color: #fff">
 
-      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Product'}" (click)="selectedTab='Product'">
+      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Product'}" (click)="selectedTab='Product';searchText ='allProducts'">
         All Products
       </span>
-      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Promotions'}" (click)="selectedTab='Promotions';">
+      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Promotions'}" (click)="selectedTab='Promotions';searchText ='promotions'">
           Promotions
         </span>
-        <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Discount'}" (click)="selectedTab='Discount'">
+        <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='Discount'}" (click)="selectedTab='Discount'; searchText ='noDisCount'">
             No Discount
           </span>
 
@@ -42,34 +42,34 @@ width: 107%;">
 </div>
 
 <div class="col-md-12">
-  <div class="row">
+  <div class="row" style="font-size: 13px;">
       <div class="col-md-2"></div>
       <div class="col-md-3">Product Name/Code/Pack</div>
       <div class="col-md-1">Quantity</div>
       <div class="col-md-2">Tride Price</div>
       <div class="col-md-1">Savings</div>
-      <div class="col-md-1">Net price</div>
+      <div class="col-md-2">Net price</div>
   </div>
   <div class="col-md-12" *ngFor="let productJson of productJson | filter : searchText;let i=index">
   
     <div class="col-md-12">
         <mat-card  class="a2" [ngStyle]="{'border-left-color':productJson.color}">
             <div class="row">
-            <div class="col-md-2"> <img  style="width:100px;height: 100px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
+            <div class="col-md-2" style="    margin-bottom: 7px;"> <img  style="width:130px;height: 100px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
             <div class="col-md-3">{{productJson.productName}}</div>
             <div class="col-md-1" ><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
               mdbInput></div>
-            <div class="col-md-2">{{productJson.trideprice}}</div>
-            <div class="col-md-1">{{productJson.savings}}</div>
-            <div class="col-md-1">{{productJson.netprice}}</div>
+            <div class="col-md-2">{{productJson.trideprice | currency}}</div>
+            <div class="col-md-1">{{productJson.savings | currency}}</div>
+            <div class="col-md-1">{{productJson.netprice | currency}}</div>
             <div><img src="./assets/images/Cart_active.png" style="cursor: pointer" (click)="addCart(productJson,i)"></div>
           </div>
-          <div class="row">
+          <div class="row" style="margin-top: -42px;">
               <div class="col-md-2"></div>
               <div class="col-md-4">Product Information Test comes here</div>
               <div class="col-md-2"></div>
               <div class="col=md-2"></div>
-              <div class="col-md-1" [ngStyle]="{'color':productJson.color}">Discount:10%</div>
+              <div class="col-md-2" [ngStyle]="{'color':productJson.color}"> Discount: {{productJson.discount | currency}} </div>
           </div>
           </mat-card>
      
@@ -77,4 +77,3 @@ width: 107%;">
 </div>
   
 </div>
-<button (click)="clickme()">Testing Purpose  -- Naigating to cart page</button> 

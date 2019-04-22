@@ -45,9 +45,11 @@ example-small-box, .example-large-box {
 }
  
   .a2{
-    border-left-width: 15px !important;
+    border-left-width: 4px !important;
     border-radius: 35px;
-  margin-top: 15px }
+  margin-top: 15px;
+  border-radius: 25px;
+  border-left: 1px solid transparent;}
 
   table td, .table th {
     /* padding: .75rem;
@@ -62,4 +64,15 @@ example-small-box, .example-large-box {
 .tableAlignment{
   border-left: 2px solid #dee2e6;;
     margin-top: 20px;
+}
+
+.cardwholesaler{
+  border-radius: 23px;
+    border-bottom: 0.5px solid beige;
+}
+
+.wholesaler {
+border-color:  lightgreen;
+border-radius: 15px;
+color:lightgreen;
 }

@@ -30,8 +30,7 @@ export class CheckoutscreenComponent implements OnInit {
   ngOnInit() {
 
     debugger;
-    console.log(this.productJson);
-
+    console.log(this.commonProductService.addCartItems);
     if(this.commonProductService.addCartSubject !== undefined) {
       this.commonProductService.addCartSubject.subscribe((items) => {
         console.log(items,'items');
@@ -47,12 +46,12 @@ export class CheckoutscreenComponent implements OnInit {
 
   OrderDetails(item){
     switch(item){
-
       case 'product': {
           this.product = true;
           this.promotions = false;
           this.Discount = false;
           this.PAYMENT = false;
+          break;
 
       }
       case 'promotions': {
@@ -60,13 +59,14 @@ export class CheckoutscreenComponent implements OnInit {
         this.promotions = true;
         this.Discount = false;
         this.PAYMENT = false;
-
+        break;
     }
     case 'Discount': {
       this.product = false;
       this.promotions = false;
       this.Discount = true;
       this.PAYMENT = false;
+      break;
 
   }
   case 'PAYMENT': {
@@ -74,10 +74,21 @@ export class CheckoutscreenComponent implements OnInit {
     this.promotions = false;
     this.Discount = false;
     this.PAYMENT = true;
+    break;
 
 }
 
     }
+  }
+
+  onChange(event,items){
+    console.log(items);
+    this.commonProductService.priceClaculation(event,items);
+    
+  }
+
+  totalCalculations() {
+    this.commonProductService.getTotalCalculation();
   }
 
  }

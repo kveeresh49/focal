@@ -13,6 +13,9 @@ import {
   MatProgressSpinnerModule,
   MatTabsModule
 } from '@angular/material';
+
+
+import {MatBadgeModule} from '@angular/material/badge';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -51,7 +54,8 @@ import { CdkTreeModule } from '@angular/cdk/tree';
     MatAutocompleteModule,
     MatSlideToggleModule,
     CdkTreeModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule,
   ],
   exports: [
     MatTabsModule,
@@ -78,6 +82,7 @@ import { CdkTreeModule } from '@angular/cdk/tree';
     MatSlideToggleModule,
     CdkTreeModule,
     MatProgressSpinnerModule,
+    MatBadgeModule
   ]
 })
 export class MaterialAppModule { }

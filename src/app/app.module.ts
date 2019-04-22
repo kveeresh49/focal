@@ -14,6 +14,8 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { FilterPipe } from './products/product-list/filter.pipe';
 import { CheckoutscreenComponent } from './products/checkoutscreen/checkoutscreen.component';
+import { OrdersComponent } from './products/orders/orders.component';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { CheckoutscreenComponent } from './products/checkoutscreen/checkoutscree
     routingComponents,
     ProductListComponent,
     FilterPipe,
-    CheckoutscreenComponent
+    CheckoutscreenComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -31,11 +34,12 @@ import { CheckoutscreenComponent } from './products/checkoutscreen/checkoutscree
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     LayoutModule,
     MaterialAppModule,
     NgxPaginationModule,
-    
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,7 @@
-
 <div *ngIf="productJson.length ==0" class="mt-10">
-    <div class="alert alert-primary" role="alert">
-        No Products are Acalible
-      </div>
+  <div class="alert alert-primary" role="alert">
+    No Products are Acalible
+  </div>
 </div>
 
 
@@ -33,10 +32,10 @@
         </div>
   </nav> -->
 
-<div   *ngIf="productJson.length !=0" class="col-md-12">
-<div class="row">
-  <div class="col-md-8">
-      <nav aria-label="breadcrumb1 container" style="text-align: center;">
+<div *ngIf="productJson.length !=0" class="col-md-12">
+  <div class="row">
+    <div class="col-md-8">
+      <!-- <nav aria-label="breadcrumb1 container" style="text-align: center;">
           <div class="a1" style="background-color: #fff">
       
               <span class="ml-3 mr-4 breadcrumb-item" (click)="selectedTab='Product';OrderDetails('product')">
@@ -61,114 +60,156 @@
                       </span>
                     </span>
               </div>
-        </nav>
+        </nav> -->
       <mat-tab-group dynamicHeight>
-          <div class="row">
-              <div class="col-md-8">
-                  <mat-tab label="Order Summary">
-                      <div class="col-md-12"  style="padding-top:15px !important">
-                          <div class="col-md-12">
-                              <div class="row">
-                                  <div class="col-md-2"></div>
-                                  <div class="col-md-3">Product Name/Code/Pack</div>
-                                  <div class="col-md-1">Quantity</div>
-                                  <div class="col-md-2">Tride Price</div>
-                                  <div class="col-md-1">Savings</div>
-                                  <div class="col-md-1">Net price</div>
-                              </div>
-                              <div class="col-md-12" *ngFor="let productJson of productJson;let i=index">
-                              
-                                <div class="col-md-12">
-                                    <mat-card  class="a2" [ngStyle]="{'border-left-color':productJson.color}">
-                                        <div class="row">
-                                        <div class="col-md-2"> <img  style="width:100px;height: 100px;"src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                                        <div class="col-md-3">{{productJson.productName}}</div>
-                                        <div class="col-md-1">{{productJson.quantity}}</div>
-                                        <div class="col-md-2">{{productJson.trideprice}}</div>
-                                        <div class="col-md-1">{{productJson.savings}}</div>
-                                        <div class="col-md-1">{{productJson.netprice}}</div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col-md-12">
-                                              <div   style="cursor: pointer;    float: right !important;" (click)="removeItems(productJson,i)">
-                                                  RemoveItems
-                                              </div>
-                                          </div>
-                                            
-                                        </div>
-                                      </mat-card>
-                              </div>
-                            </div>
-                              
-                            </div>
+        <div class="row">
+          <div class="col-md-8">
+            <mat-tab label="REVIEW ORDER">
+              <div class="col-md-12" style="padding-top:15px !important">
+                <div class="col-md-12">
+                  <div class="row" style="font-size: 13px;">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-3">Product Name/Code/Pack</div>
+                    <div class="col-md-1">Quantity</div>
+                    <div class="col-md-2">Tride Price</div>
+                    <div class="col-md-1">Savings</div>
+                    <div class="col-md-2">Net price</div>
+                  </div>
+                  <div class="col-md-12" *ngFor="let productJson of productJson;let i=index">
+
+                    <div class="col-md-12">
+                      <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
+                        <div class="row">
+                          <div class="col-md-2"> <img style="width:100px;height: 100px;"
+                              src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
+                          <div class="col-md-3">{{productJson.productName}}</div>
+                          <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
+                            mdbInput></div>
+                            <div class="col-md-2">{{productJson.trideprice | currency}}</div>
+                            <div class="col-md-1">{{productJson.savings | currency}}</div>
+                            <div class="col-md-1">{{productJson.netprice | currency}}</div>
                         </div>
-                    </mat-tab>
-                    <mat-tab label="Select Wholesaler">
-                      <div class="example-large-box mat-elevation-z4">
-                        Large content
-                      </div>
-                    </mat-tab>
-                    <mat-tab label="Select Wholesaler">
-                      <div class="example-large-box mat-elevation-z4">
-                        Place order
-                      </div>
-                    </mat-tab>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div style="cursor: pointer;    float: right !important;"
+                              (click)="removeItems(productJson,i)">
+                              RemoveItems
+                            </div>
+                          </div>
+
+                        </div>
+                      </mat-card>
+                    </div>
+                  </div>
+
+                </div>
               </div>
-              
-              
-          </div>
-          
-          
-          
-        </mat-tab-group>
-  </div>
-  <div class="col-md-4">
+            </mat-tab>
+            <mat-tab label="WHOLESALER">
+              <div class="col-md-12 mt-5">
+                <div class="row">
+                  <div class="col-md-6">
+                      <mat-card class="cardwholesaler" (click)="selectedTab='Wholesaler'" [ngClass]="{wholesaler:selectedTab=='Wholesaler'}">
+                      <h4>Care Wholesaler</h4>
+                        <p>4299 Lafaryattle Drive<br/>
+                        #1880, Hyd</p>
+                      </mat-card>
+                  </div>
+                  <div class="col-md-6">
+                      <mat-card class="cardwholesaler" (click)="selectedTab='Appolo'" [ngClass]="{wholesaler:selectedTab=='Appolo'}">
+                            <h4>Appolo Wholesaler</h4>
+                            <p>4299 Lafaryattle Drive<br/>
+                            #1880, Hyd</p>
+                       
+                          
+                        </mat-card>
+                  </div>
+                </div>
+
+
+
+              </div>
+            </mat-tab>
+            <mat-tab label="ADDRESS ">
+                <div class="col-md-12 mt-5">
+                    <div class="row">
+                      <div class="col-md-6">
+                          <mat-card class="cardwholesaler" (click)="selectedTab='ADDRESS1'" [ngClass]="{wholesaler:selectedTab=='ADDRESS1'}">
+                          <h4>Care Wholesaler</h4>
+                            <p>4299 Lafaryattle Drive<br/>
+                            #1880, Hyd</p>
+                          </mat-card>
+                      </div>
+                      <div class="col-md-6">
+                          <mat-card class="cardwholesaler" (click)="selectedTab='ADDRESS2'" [ngClass]="{wholesaler:selectedTab=='ADDRESS2'}">
+                                <h4>Appolo Wholesaler</h4>
+                                <p>4299 Lafaryattle Drive<br/>
+                                #1880, Hyd</p>
+                            </mat-card>
+                      </div>
+                    </div>
     
-     
-<table mdbTable borderless="true" class="table tableAlignment">
-      
-    <!--Table head-->
-    <thead>
-  <tr>
-    <th scope="col">PriceDetails</th>
-  </tr>
-</thead>
-    <!--Table head-->
+    
+    
+                  </div>
+            </mat-tab>
+            <!-- <mat-tab label="PayMent ">
+              <div class="example-large-box mat-elevation-z4">
 
-    <!--Table body-->
-   <tbody>
-  <tr class="mt-2" mdbTableCol>
-    <td scope="row">Total MRP</td>
-    <td scope="row">$ 110</td>
-  </tr>
-  <tr class="mt-2" mdbTableCol>
-    <td scope="row">Discout</td>
-    <td scope="row" style="color:green">- $ 10</td>
-  </tr>
-  <tr class="mt-2" mdbTableCol>
-    <td scope="row">Est.Tax</td>
-    <td scope="row">+ $ 10</td>
-  </tr>
-  <tr class="mt-2" mdbTableCol    style="border-bottom: 2px solid #dee2e6;">
-      <td scope="row">Delievery Charges</td>
-      <td style="color:green">free</td>
-    </tr>
-    <tr class="mt-2" mdbTableCol>
-        <td scope="row">Total</td>
-        <td></td>
-      </tr>
-      <tr class="btn-table">
-         <td rowspan="2">
-            <button type="button" class="btn btn-primary">Next</button>
-         </td>
-      </tr>
-</tbody>
+              </div>
+            </mat-tab> -->
+          </div>
 
-  </table>
+
+        </div>
+
+
+
+      </mat-tab-group>
+    </div>
+    <div class="col-md-4">
+
+
+      <table mdbTable borderless="true" class="table tableAlignment">
+
+        <!--Table head-->
+        <thead>
+          <tr>
+            <th scope="col">PriceDetails</th>
+          </tr>
+        </thead>
+        <!--Table head-->
+
+        <!--Table body-->
+        <tbody>
+          <tr class="mt-2" mdbTableCol>
+            <td scope="row">Total MRP</td>
+            <td scope="row">$ 110</td>
+          </tr>
+          <tr class="mt-2" mdbTableCol>
+            <td scope="row">Discout</td>
+            <td scope="row" style="color:green">- $ 10</td>
+          </tr>
+          <tr class="mt-2" mdbTableCol>
+            <td scope="row">Est.Tax</td>
+            <td scope="row">+ $ 10</td>
+          </tr>
+          <tr class="mt-2" mdbTableCol style="border-bottom: 2px solid #dee2e6;">
+            <td scope="row">Delievery Charges</td>
+            <td style="color:green">free</td>
+          </tr>
+          <tr class="mt-2" mdbTableCol>
+            <td scope="row">Total</td>
+            <td></td>
+          </tr>
+          <tr class="btn-table">
+            <td rowspan="2">
+              <button type="button" class="btn btn-primary">Next</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
   </div>
 </div>
-</div>
-
-
-
-
