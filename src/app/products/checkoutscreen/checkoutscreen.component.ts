@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonProductService } from '../common-product.service';
+import { addressJson } from '../product-list/product-list';
 
 
 
@@ -10,6 +11,7 @@ import { CommonProductService } from '../common-product.service';
 export class CheckoutscreenComponent implements OnInit {
 
   public productJson:any;
+  public addressJson = addressJson;
 
   elements: any = [
     {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
@@ -18,24 +20,31 @@ export class CheckoutscreenComponent implements OnInit {
   ];
 
   headElements = ['ID', 'First', 'Last', 'Handle'];
+  public breadcrum = [
+    'REVIEW ORDER',
+    'WHOLESALER',
+    'ADDRESS',
+    'PAYMENT'
+
+  ]
   product: boolean;
   promotions: boolean;
   Discount: boolean;
   PAYMENT: boolean;
+  selectedTab: any;
+  tridePrice: number;
+  savings: number;
+  total: number;
 
   constructor(private commonProductService:CommonProductService){
-    this.productJson = this.commonProductService.addCartItems;
+    
   }
 
   ngOnInit() {
-
-    debugger;
+    this.productJson = this.commonProductService.addCartItems;
+    this.selectedTab = this.breadcrum[0];
     console.log(this.commonProductService.addCartItems);
-    if(this.commonProductService.addCartSubject !== undefined) {
-      this.commonProductService.addCartSubject.subscribe((items) => {
-        console.log(items,'items');
-      });
-    }
+    this.getTotalPriceCalculation();
   }
 
   removeItems(items,i){
@@ -44,51 +53,60 @@ export class CheckoutscreenComponent implements OnInit {
     console.log(this.productJson)
   }
 
-  OrderDetails(item){
-    switch(item){
-      case 'product': {
-          this.product = true;
-          this.promotions = false;
-          this.Discount = false;
-          this.PAYMENT = false;
-          break;
-
-      }
-      case 'promotions': {
-        this.product = false;
-        this.promotions = true;
-        this.Discount = false;
-        this.PAYMENT = false;
-        break;
-    }
-    case 'Discount': {
-      this.product = false;
-      this.promotions = false;
-      this.Discount = true;
-      this.PAYMENT = false;
-      break;
-
-  }
-  case 'PAYMENT': {
-    this.product = false;
-    this.promotions = false;
-    this.Discount = false;
-    this.PAYMENT = true;
-    break;
-
-}
-
-    }
-  }
-
   onChange(event,items){
-    console.log(items);
     this.commonProductService.priceClaculation(event,items);
-    
+    this.getTotalPriceCalculation();
   }
 
   totalCalculations() {
     this.commonProductService.getTotalCalculation();
+  }
+
+  selectTabClick(index) {
+
+    switch(index) {
+
+      case 0: {
+        this.selectedTab = this.breadcrum[index];
+        break;
+      }
+      case 1: {
+        this.selectedTab = this.breadcrum[index];
+        break;
+      }
+      case 2: {
+        this.selectedTab = this.breadcrum[index];
+        break;
+      }
+      case 3: {
+        this.selectedTab = this.breadcrum[index];
+        break;
+      }
+    }
+
+  }
+
+
+  getNavigationMethod(tab){
+
+    this.breadcrum.forEach((data,index) => {
+
+      if(data === tab) {
+        this.selectTabClick(index+1);
+      }
+    });
+
+  }
+
+  getTotalPriceCalculation() {
+    this.tridePrice = 0;
+    this.savings = 0;
+    this.commonProductService.addCartItems.forEach((data) => {
+      this.tridePrice =  this.tridePrice + (data.quantity * data.trideprice);
+      this.savings = this.savings + ((data.quantity * data.trideprice ) - data.netprice);
+    });
+    this.total =  this.tridePrice - this.savings;
+
   }
 
  }

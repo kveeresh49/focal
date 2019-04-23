@@ -1,17 +1,11 @@
 <app-login *ngIf="!isAuthenticated()"></app-login>
-<div fxLayout="column" fxLayoutGap="2px" *ngIf="isAuthenticated()">
-	<div fxLayout="row" fxFill fxLayoutGap="2px">
-		<div fxLayout="column" fxFlex="grow" fxLayoutGap="2px">
+<div *ngIf="isAuthenticated()">
 			<app-navigation-bar></app-navigation-bar>
-			<div fx-layout="row" fxFlex="grow" fxLayoutAlign="start stretch" fxLayoutGap="0px" class="main-container-wrapper">
-				<mat-card fxFlex="grow" fxLayoutAlign="stretch stretch" class="mat-elevation-z0" style="padding: 0px 24px">
+			<div class="container">
 					<router-outlet>
-					</router-outlet>
-				</mat-card>
+						</router-outlet>
 			</div>
-		</div>
-	</div>
-	<div>
-		<app-footer></app-footer>
-	</div>
-</div>
+			
+				
+			</div>
+	

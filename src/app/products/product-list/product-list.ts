@@ -10,7 +10,8 @@ export const productlistJson = [
         discount: 20,
         color: 'red',
         promotions: '',
-        noDisCount: 'noDisCount'
+        noDisCount: 'noDisCount',
+
     },
     {
         productName: 'Affrin',
@@ -22,7 +23,8 @@ export const productlistJson = [
         discount: 10,
         color: 'green',
         promotions: 'promotions',
-        noDisCount: 'noDisCount'
+        noDisCount: 'noDisCount',
+        disabled: true,
 
 
     },
@@ -35,7 +37,8 @@ export const productlistJson = [
         productInformation: 'Product Information',
         discount: 20,
         color: 'blue',
-        promotions: 'yes'
+        promotions: 'yes',
+        disabled: true,
 
     },
     {
@@ -110,5 +113,45 @@ export const orderJson = [
         status: 'shipped',
 
     },
+
+]
+
+
+export const addressJson = [
+    {
+        shipping_address: [{
+            name: 'Jane Smith',
+            street_address: '1600 Pennsylvania Avenue NW',
+            city: 'Washington',
+            state: 'DC',
+            zip: 533234
+        },
+        {
+            name: 'Jane',
+            street_address: '1600 Pennsylvania Avenue NW',
+            city: 'Washington',
+            state: 'DC',
+            zip: 50032
+        },
+
+
+        ],
+        billing_address: [
+            {
+                name: 'Jane',
+                street_address: '1st Street SE',
+                city: 'Washington',
+                state: 'DC',
+                zip: 50032
+            },
+            {
+                name: 'Smith',
+                street_address: '1st Street SE',
+                city: 'Washington',
+                state: 'DC',
+                zip: 50032
+            }
+        ]
+    }
 
 ]
