@@ -21,16 +21,30 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     // this.productJson.quantity = this.quantity;
-    this.selectedTab = 'Product';
+    this.selectedTab = 'product';
     this.getCalculation();
+    this.getData();
   }
 
   addCart(items, index) {
     console.log(items);
-    this.commonProductService.addCartItems.push(items);
+    if(this.commonProductService.addCartItems.length === 0) {
+      this.commonProductService.addCartItems.push(items);
+    } else {
+      this.commonProductService.addCartItems.forEach((data) => {
+
+        if(data.productName === items.productName){
+             data.quantity = items.quantity;
+        }
+
+      });
+
+    }
+    
     // this.commonProductService.addCartSubject.next(items);
     console.log(items, index);
-    alert( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`)
+    alert( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`);
+    this.commonProductService.addCartSubject.next(1);
 
   }
 
@@ -48,6 +62,22 @@ export class ProductListComponent implements OnInit {
     if (this.productJson.length !== 0) {
       this.commonProductService.savingCalculation(this.productJson);
     }
+  }
+
+  getData() {
+    this.commonProductService.addCartSubject.subscribe((data)=>{
+      console.log(this.commonProductService.addCartItems.length);
+    })
+  }
+
+
+  // Menu Navigation Click - Heilighting menus
+
+  navigationClick(navigationText){
+    this.selectedTab = navigationText;
+    this.searchText = navigationText;
+
+
   }
 
 

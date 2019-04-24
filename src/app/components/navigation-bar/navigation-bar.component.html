@@ -133,14 +133,14 @@
             <img class="mr-2"
             src="./assets/images/header_orders.png"
             alt="orders Logo"/>
-          <span [routerLink]="['/products/orders']" >Orders</span>
+          <span [routerLink]="['/products/orders']"   [routerLinkActive]="['class1']">Orders</span>
         </label>
         
       </div>
       <div>
           <label class="mr-5">
-              <span color="primary"
-              matBadge="4" matBadgePosition="before" matBadgeColor="accent"></span>
+              <span *ngIf="itemslength !==0" color="primary"
+              matBadge="{{itemslength}}" matBadgePosition="before" matBadgeColor="accent"></span>
              <img
              src="./assets/images/header_cart.png"
              alt="orders Logo"  [routerLink]="['/products/checkout']" [routerLinkActive]="['class1']">

@@ -51,6 +51,7 @@ export class CheckoutscreenComponent implements OnInit {
     console.log(items);
     this.productJson.splice(i,1);
     console.log(this.productJson)
+    this.commonProductService.addCartSubject.next(1);
   }
 
   onChange(event,items){
@@ -60,6 +61,10 @@ export class CheckoutscreenComponent implements OnInit {
 
   totalCalculations() {
     this.commonProductService.getTotalCalculation();
+  }
+
+  getScribeData() {
+
   }
 
   selectTabClick(index) {
@@ -102,8 +107,8 @@ export class CheckoutscreenComponent implements OnInit {
     this.tridePrice = 0;
     this.savings = 0;
     this.commonProductService.addCartItems.forEach((data) => {
-      this.tridePrice =  this.tridePrice + (data.quantity * data.trideprice);
-      this.savings = this.savings + ((data.quantity * data.trideprice ) - data.netprice);
+      this.tridePrice =  this.tridePrice + (data.quantity * data.tridePrice);
+      this.savings = this.savings + ((data.quantity * data.tridePrice ) - data.netPrice);
     });
     this.total =  this.tridePrice - this.savings;
 

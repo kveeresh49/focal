@@ -7,16 +7,18 @@ import { LanguageService } from "src/app/services/language.service";
 import { LanguageChangeObserver } from "src/app/util/language-change.observer";
 import { CommonProductService } from 'src/app/products/common-product.service';
 
+
 @Component({
   selector: "app-navigation-bar",
   templateUrl: "./navigation-bar.component.html",
   styleUrls: ["./navigation-bar.component.css"]
 })
 export class NavigationBarComponent extends BaseComponent implements OnInit {
+
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches));
-  myvalue: number;
+    public itemslength: number;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -32,9 +34,16 @@ export class NavigationBarComponent extends BaseComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.setUserLanguage();
-    this.myvalue = this.commonProductService.addCartItems.length;
-    console.log(this.commonProductService.addCartItems.length);
+    this.getSubscribe();
   }
+
+  getSubscribe() {
+    this.commonProductService.addCartSubject.subscribe((data)=> {
+      this.itemslength = this.commonProductService.addCartItems.length;
+      console.log(this.itemslength);
+    })
+  }
+
+
 }

@@ -1,12 +1,12 @@
 <div *ngIf="productJson.length ==0" class="mt-10">
   <div class="alert alert-primary" role="alert">
-    No Products are Acalible
+    No Products are Avalible
   </div>
 </div>
 
-<div class="col-md-12 mt-5"  *ngIf="productJson.length !==0 || productJson.length == undefined ">
-  <div class="row">
-      <div class="col-md-9">
+<div class="col-md-12 mt-5">
+  <div class="row" *ngIf="productJson.length !==0">
+      <div class="col-md-12">
           <nav aria-label="breadcrumb1 container" style="text-align: center;">
               <div class="a1" style="background-color: #fff">
                   <span class="ml-3 mr-4 breadcrumb-item" *ngFor="let item of breadcrum;let i=index">
@@ -31,17 +31,20 @@
 
       <div class="col-md-12" *ngIf="selectedTab===breadcrum[0]">
           <div class="col-md-12">
-              <h6 class="ml-5  mt-2">My Cart ({{productJson.length}} Items)</h6>
-              <div class="row" style="font-size: 13px;">
+              <div class="row">
+                  <div class="col-md-8 ml-5"><b>My Cart ({{productJson.length}} Items</b>)</div>
+                  <div class="col-md-3"><b>Total: {{total | currency}}</b></div>
+              </div>
+              
+              <div class="row mt-5" style="font-size: 13px;">
                 <div class="col-md-2"></div>
                 <div class="col-md-3">Product Name/Code/Pack</div>
-                <div class="col-md-1">Quantity</div>
+                <div class="col-md-2">Quantity</div>
                 <div class="col-md-2">Tride Price</div>
                 <div class="col-md-1">Savings</div>
                 <div class="col-md-2">Net price</div>
               </div>
               <div class="col-md-12 mt-1" *ngFor="let productJson of productJson;let i=index">
-                  {{productJson | json}}
                 <div class="col-md-12">
                   <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
                     <div class="row">
@@ -50,9 +53,9 @@
                       <div class="col-md-3">{{productJson.productName}}</div>
                       <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)"
                         mdbInput></div>
-                        <div class="col-md-2">{{productJson.trideprice | currency}}</div>
+                        <div class="col-md-2">{{productJson.tridePrice | currency}}</div>
                         <div class="col-md-1">{{productJson.savings | currency}}</div>
-                        <div class="col-md-1">{{productJson.netprice | currency}}</div>
+                        <div class="col-md-2">{{productJson.netPrice | currency}}</div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
@@ -65,6 +68,12 @@
                     </div>
                   </mat-card>
                 </div>
+              </div>
+              <div class="col-md-12">
+                <mat-card class="cardwholesaler mt-3" [routerLink]="['/products/products-list']">
+                  Add More Products
+                  <i class="arrow right mt-2"></i>
+                </mat-card>
               </div>
 
             </div>
