@@ -10,6 +10,55 @@
   max-width: 400px;
   min-width: 200px;
 }
-.class1{
-  color:red;
+.class1 {
+  color: red;
+}
+.delCol {
+  color: #26a69a;
+}
+.shipCol{
+  color: tomato;
+}
+.imageSize{
+width: 100%;
+height:150px !important;
+}
+.purchaseBtn button{
+  background-color: transparent;
+  color: #26a69a;
+  border-color: #26a69a !important;
+}
+.call{
+  padding:2px 9px;
+  border-radius: 10px;
+  background-color: #26a69a;
+  color: #fff;
+}
+.date{
+  text-align: center;
+  font-size: 11px;
+  width: 50%;
+  margin:0 auto;
+  color: white;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  margin-top: -9px
+}
+
+.order {
+  background-color: tomato;
+  color: #fff;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-size: 12px;
+  padding: 15px 7px;
+}
+
+.ship{
+  background-color: tomato;
+  color: #fff;
+}
+.del{
+  background-color: #26a69a;
+  color: #fff;
 }

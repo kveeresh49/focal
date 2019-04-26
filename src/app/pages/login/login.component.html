@@ -1,90 +1,60 @@
-<div class="icontainer">
-  <div class="a">
+<div class="mt-5 pt-5" style="padding-top:10%">
     <mat-card
-      class="login-box"
-      style="/*clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);*/"
+      class="p-0"
+      style="border-radius: 10px;height: 500px;border-bottom-right-radius: 10px;border-top-right-radius: 10px"
     >
-      <div
-        style="display: grid; justify-content: center; align-content: center; border-right: 1px solid slategray"
-      >
-        <img src="./assets/images/msd-logo-inventing-for-life.png" />
-      </div>
-      <div
-        style="display: grid; grid-template-rows: 1fr auto; justify-content: center; align-content: center; grid-column-gap: 14px; margin-left: 20px; width: 300px; "
-      >
+      <div class="row col-md-12" style="height: 500px">
         <div
-          style="display: grid; justify-content: center; align-content: center; text-align: center; color: teal; font-weight: bold"
+          class="col-md-4 p-3 pt-5"
+          style="background-color: #26a69a; text-align: center; color: white;border-bottom-right-radius: 10px;border-top-right-radius: 10px"
         >
-          Sign in
+          <img
+            class="mr-2 pt-5"
+            src="./assets/images/iorder_header.png"
+            alt="MSD Logo"
+            style="padding-top: 30%;height: 204px"
+          />
+          <div class="pb-3 pt-2" style="font-size: 19px">
+            IOrder
+          </div>
+          <div>
+            Welcome Back,Login with your details.
+          </div>
         </div>
         <div
-          style="display: grid; justify-content: stretch; align-content: stretch; width: 300px; "
+          class="col-md-8 p-3"
+          style="text-align: center;padding-top: 8% !important"
         >
-          <form
-            class="loginForm"
-            #loginForm="ngForm"
-            action=""
-            (submit)="login()"
-            autocomplete="off"
-            method="POST"
+          <img
+            class="mr-2 pt-5"
+            src="./assets/images/iorder_header.png"
+            alt="MSD Logo"
+          />
+          <div style="color: #26a69a;font-size: 13px">iOrder</div>
+          <div style="font-size: 11px">
+            Login With
+          </div>
+          <div class="col-md-7" style="margin:0 auto">
+            <i class="fa fa-imdb"></i>
+            <span style="border-right:1px" solid black class="pl-2"></span>
+            <i class="fa fa-cloud pl-2"></i>
+          </div>
+          <div class="col-md-7" style="margin:0 auto">
+            <input type="text" class="form-control" placeholder="username" />
+            <input
+              type="password"
+              class="form-control mt-3 mb-3"
+              placeholder="password"
+            />
+          </div>
+          <button
+            (click)="navigateToDashboard()"
+            class="btn btn-primary col-md-2"
+            style="background-color: #26a69a;border-radius: 20px;border:1px solid #26a69a;font-size: 12px"
           >
-            <mat-form-field
-              appearance="outline"
-              style="display: grid; justify-content: stretch; align-content: stretch; width: 100%"
-            >
-              <mat-label>Username</mat-label>
-              <input
-                matInput
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Username"
-                style="width: 100%"
-                [(ngModel)]="username"
-              />
-              <mat-hint style="color:red" *ngIf="error.username"
-                >Username is required</mat-hint
-              >
-            </mat-form-field>
-            <mat-form-field
-              appearance="outline"
-              style="display: grid; justify-content: stretch; align-content: stretch"
-            >
-              <mat-label>Password</mat-label>
-              <input
-                matInput
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Password"
-                [(ngModel)]="password"
-              />
-              <mat-hint style="color:red" *ngIf="error.password"
-                >Password is required</mat-hint
-              >
-            </mat-form-field>
-            <button
-              mat-raised-button
-              type="submit"
-              color="prime"
-              id="loginBtn"
-              [disabled]="processing"
-              (click)="login()"
-              style="background-color: teal"
-            >
-              {{ loginButtonLabel }}
-            </button>
-            <!-- <a class="small-link" href="http://localhost:9990/login" style="margin-top: 10px">Login using Salesforce account</a> -->
-          </form>
+            Sign In
+          </button>
         </div>
       </div>
     </mat-card>
   </div>
-  <div
-    class="b"
-    fxShow.lg
-    fxHide.md
-    fxHide.sm
-    style="background-image: url('./assets/images/2.jpg'); background-repeat:no-repeat; background-size:cover; height: 100vh; /*  clip-path: polygon(0 0, 100% 0, 100% 38%, 100% 100%, 74% 100%, 0 100%, 4% 80%, 3% 63%, 3% 43%, 4% 22%);*/"
-  ></div>
-</div>

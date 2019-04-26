@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  public searchKey: any;
   public productJson = [];
   public quantity: any;
   public searchText: any;
   public selectedTab: any;
   public isDisabled = true;
+  
 
   constructor(public commonProductService: CommonProductService, private route: Router) {
     this.productJson = productlistJson.slice();
@@ -28,21 +30,22 @@ export class ProductListComponent implements OnInit {
 
   addCart(items, index) {
     console.log(items);
-    if(this.commonProductService.addCartItems.length === 0) {
+
+    const filteredItems = this.commonProductService.addCartItems.filter((a) => (a.productName === items.productName));
+
+    if(filteredItems.length === 0) {
       this.commonProductService.addCartItems.push(items);
     } else {
       this.commonProductService.addCartItems.forEach((data) => {
-
         if(data.productName === items.productName){
              data.quantity = items.quantity;
         }
 
       });
-
     }
     
     // this.commonProductService.addCartSubject.next(items);
-    console.log(items, index);
+    console.log(this.commonProductService.addCartItems);
     alert( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`);
     this.commonProductService.addCartSubject.next(1);
 
@@ -75,9 +78,7 @@ export class ProductListComponent implements OnInit {
 
   navigationClick(navigationText){
     this.selectedTab = navigationText;
-    this.searchText = navigationText;
-
-
+   
   }
 
 

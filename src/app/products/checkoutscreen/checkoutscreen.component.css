@@ -72,9 +72,9 @@ example-small-box, .example-large-box {
 }
 
 .wholesaler {
-border-color:  lightgreen;
+border-color:  #26a69a;
 border-radius: 15px;
-color:lightgreen;
+color:#26a69a;
 }
 
 i {
@@ -88,4 +88,18 @@ i {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   float: right;
+}
+
+.trangleSelectedItem {
+     width: 0;
+    height: 0;
+    right: 0;
+    position: absolute;
+    border-bottom: 25px solid #26a69a;
+    border-left: 25px solid transparent;
+    border-bottom-left-radius: -3px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: -4px;
+    border-top-left-radius: 36px;
+    top: 95px;
 }

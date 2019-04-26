@@ -1,4 +1,4 @@
-.mat-card:not([class*=mat-elevation-z]) {
+.mat-card:not([class*='mat-elevation-z']) {
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     border-left: 3px solid red;
     border-bottom: 1px solid rgba(0, 0, 0, 0.14);
@@ -35,22 +35,37 @@ border-radius: 25px;
 margin-top: 19px;
 }
 
+.leftTrangle {
+  width: 0;
+    height: 0;
+    border-bottom: 40px solid #ffff;
+    border-right: 40px solid transparent;
+    position: absolute;
+    left: 73px;
+    z-index: 12 !important;
+}
+
+.rightTrangle{
+  width: 0;
+    height: 0;
+    border-bottom: 40px solid #fff;
+    border-left: 40px solid transparent;
+    position: absolute;
+    top: 4px;
+    right: 478px;
+    z-index: 12 !important;
+}
+
 .sample {
   border: 1px solid #26a69a;
   border-radius: 0px 0px 500px 500px;
-  width: 52%;
-  top:-20px;
-  //height: 37px;
-  border-bottom-right-radius: 100%;
-  border-bottom-left-radius: 100%;
+  width: 51%;
   margin: 0 auto;
   background-color: #26a69a;
-  position:absolute;
+  position: absolute;
+  top: -19px;
   padding-bottom: 5px;
-  margin-left: 84px; 
-  border-top-left-radius: 0;
-  /* padding-bottom: 10px; */
-  border-top-right-radius: 0;
+  margin-left: 70px;
 }
 
 .active{

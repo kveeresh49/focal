@@ -114,26 +114,36 @@
     </a>
     <div class="col-md-6 col-sm-6" style="text-align: left;color:#fff">
         <label class="col-md-3 col-sm-3 col-lg-3">
-            <img class="mr-2"
-            src="./assets/images/header_Dashboard.png"
-            alt="Dashboard Logo"/>
-          <span>Dashboard</span>
+          <span class="cursor" [routerLink]="['/dashboard']" [routerLinkActive]="['class1']">
+              <img class="mr-2"
+              src="./assets/images/header_Dashboard.png"
+              alt="Dashboard Logo"/>
+              <span >Dashboard</span>
+          </span>
+           
+         
           
         </label>
          
         <label class="col-md-3 col-sm-3 col-lg-3">
-            <img class="mr-2"
-            src="./assets/images/header_products.png"
-            alt="Products"/>
-        <span [routerLink]="['/products/products-list']" [routerLinkActive]="['class1']">Products</span>
+          <span class="cursor" [routerLink]="['/products/products-list']" [routerLinkActive]="['class1']">
+              <img class="mr-2"
+              src="./assets/images/header_products.png"
+              alt="Products"/>
+              <span >Products</span>
+          </span>
+            
+        
         
         </label>
 
         <label class="col-md-3 col-sm-3 col-lg-3">
-            <img class="mr-2"
-            src="./assets/images/header_orders.png"
-            alt="orders Logo"/>
-          <span [routerLink]="['/products/orders']"   [routerLinkActive]="['class1']">Orders</span>
+          <span class="cursor" [routerLink]="['/products/orders']"   [routerLinkActive]="['class1']">
+              <img class="mr-2"
+              src="./assets/images/header_orders.png"
+              alt="orders Logo"/>
+              <span >Orders</span>
+          </span>
         </label>
         
       </div>
@@ -143,7 +153,7 @@
               matBadge="{{itemslength}}" matBadgePosition="before" matBadgeColor="accent"></span>
              <img
              src="./assets/images/header_cart.png"
-             alt="orders Logo"  [routerLink]="['/products/checkout']" [routerLinkActive]="['class1']">
+             alt="orders Logo" class="cursor"  [routerLink]="['/products/checkout']" [routerLinkActive]="['class1']">
           </label>
           <label class="mr-1">
              <img

@@ -5,29 +5,30 @@
 
 
 <div style="text-align: center;position: relative;margin-left:62px;    margin-left: 154px;
-width: 107%;">
-<span style="width:0;height: 0%;border-bottom: 40px solid #ffff;border-right:40px solid transparent; position: absolute; left:4px;margin-left: 71px">
+width: 100%;">
+<span class="leftTrangle">
 </span>
 
 <div class="sample"style="z-index: 10;">
     <div class="a1" style="background-color: #fff">
 
-      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='product'}" (click)="navigationClick('product')">
+      <span class="mr-3" [ngClass]="{active:selectedTab=='product'}" (click)="navigationClick('product')">
         All Products
       </span>
-      <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='promotions'}" (click)="navigationClick('promotions')">
+      <span class=" mr-3" [ngClass]="{active:selectedTab=='promotions'}" (click)="navigationClick('promotions')">
           Promotions
         </span>
-        <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='discount'}" (click)="navigationClick('discount')">
+        <span class="mr-3" [ngClass]="{active:selectedTab=='discount'}" (click)="navigationClick('discount')">
             No Discount
           </span>
 
-          <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='avalible'}" (click)="navigationClick('avalible')">
+          <span class="mr-3" [ngClass]="{active:selectedTab=='avalible'}" (click)="navigationClick('avalible')">
               Not Avalible
             </span>
       </div>
 
 </div>
+<span class="rightTrangle"></span>
 
 </div>
 
@@ -37,7 +38,7 @@ width: 107%;">
 
 <div class="col-md-12" style="padding-top: 48px;">
   <mat-form-field class="example-full-width-input">
-    <input matInput placeholder="Serach for product" [(ngModel)]="searchText">
+    <input matInput placeholder="Serach for product" [(ngModel)]="searchText" (ngModelChange)="searchKey = searchText" >
   </mat-form-field>
 </div>
 
@@ -46,55 +47,61 @@ width: 107%;">
       <div class="col-md-2"></div>
       <div class="col-md-3">Product Name/Code/Pack</div>
       <div class="col-md-1">Quantity</div>
-      <div class="col-md-2">Tride Price</div>
-      <div class="col-md-1">Savings</div>
-      <div class="col-md-2">Net price</div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-4">Tride Price</div>
+          <div class="col-md-3">Savings</div>
+          <div class="col-md-3">Net price</div>
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+     
   </div>
-  <div class="col-md-12" *ngFor="let productJson of productJson | filter : searchText;let i=index">
-    <div class="col-md-12">
-        <mat-card  class="matCardStyle" [ngStyle]="{'border-left-color':productJson.color}" attr.disabled="true">
-            <div *ngIf="productJson.quantity === null ||  productJson.quantity === ''">
-                <div class="row">
-                    <div class="col-md-2" style="    margin-bottom: 7px;"> <img  style="width: 124px;height: 66px;" src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                    <div class="col-md-3">{{productJson.productName}}</div>
-                    <div class="col-md-1" ><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
-                      mdbInput></div>
-                    <div class="col-md-5">Enter quantity to generate price details</div>
-                   
-                    <div><img src="./assets/images/Cart_deactive.png"></div>
-                  </div>
 
-                  <div class="row" style="">
-                      <div class="col-md-2"></div>
-                      <div class="col-md-8">Product Information Test comes here</div>
-                      <div class="col-md-2"></div>
-                  </div>
+  <div class="row" *ngFor="let productJson of (productJson | filter : searchKey);let i=index">
 
-            </div>
+    <mat-card class="matCardStyle col-md-12" [ngStyle]="{'border-left-color' : productJson.color}" attr.disabled="true">
 
-            <div *ngIf="productJson.quantity !== null && productJson.quantity !== ''">
+     <div class="row">
 
-                <div class="row">
-                    <div class="col-md-2" style="margin-bottom: 7px;"> <img  style="width: 124px;height: 66px;" src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                    <div class="col-md-3">{{productJson.productName}}</div>
-                    <div class="col-md-1" ><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
-                      mdbInput></div> 
-                    <div class="col-md-2">{{productJson.tridePrice | currency}}</div>
-                    <div class="col-md-1">{{productJson.savings | currency}}</div>
-                    <div class="col-md-2">{{productJson.netPrice | currency}}</div>
-                    <div class="col-md-1"><img src="./assets/images/Cart_active.png" style="cursor: pointer"  (click)="addCart(productJson,i)"></div>
-                  </div>
-                  <div class="row" style="mt-2">
-                      <div class="col-md-2"></div> 
-                      <div class="col-md-4">Product Information Test comes here</div>
-                      <div class="col-md-2"></div>
-                      <div class="col=md-2"></div>
-                      <div class="col-md-2" [ngStyle]="{'color':productJson.color}"> Discount: {{productJson.discount | currency}} </div>
-                  </div>
+       <div class="col-md-2">
+         <img style="width:124px;height:66px" src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"/>
+       </div>
+
+       <div class="col-md-3">{{productJson.productName}}
+         <div style="font-size: 12px">Product Information Test comes here</div>
+       </div>
+
+       <div class="col-md-1">
+        <input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" 
+        id="search-input" style="border: 0;border-bottom: 1px solid; border-radius: 0;text-align: center;box-shadow: none !important" mdbInput/>
+       </div>
+       
+       <div class="col-md-6" *ngIf="productJson.quantity !== null && productJson.quantity !== ''">
+
+         <div class="row">
+           <div class="col-md-4">{{productJson.tridePrice | currency}}</div>
+           <div class="col-md-3">{{productJson.savings | currency}}
+             <div [ngStyle]="{color:productJson.color}" style="font-size: 12px">Discount: {{productJson.discount | currency}}</div>
+           </div>
+           <div class="col-md-3">{{productJson.netPrice | currency}}</div>
+
+           <div class="col-md-1">
+             <img src="./assets/images/Cart_active.png" style="cursor: pointer" (click)="addCart(productJson,i)"/>
+           </div>
+         </div>
+
+       </div>
+
+       <div class="col-md-5" style="text-align: center;font-size: 13px" *ngIf="productJson.quantity === null || productJson.quantity === ''">
+          Enter quantity to generate price details
+      </div>
+
+
+
+     </div>
+     </mat-card>
   
-            </div>
-          </mat-card>
-  </div>
 </div>
 
 </div>

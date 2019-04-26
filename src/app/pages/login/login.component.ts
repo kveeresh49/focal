@@ -1,22 +1,22 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { BaseComponent } from "src/app/components/base.component";
-import { LanguageService } from "src/app/services/language.service";
-import { LanguageChangeObserver } from "src/app/util/language-change.observer";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BaseComponent } from 'src/app/components/base.component';
+import { LanguageService } from 'src/app/services/language.service';
+import { LanguageChangeObserver } from 'src/app/util/language-change.observer';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent extends BaseComponent implements OnInit {
-  username = "";
-  password = "";
+  username = '';
+  password = '';
   processing = false;
-  loginButtonLabel = "Login";
+  loginButtonLabel = 'Login';
   error = {
-    username: "",
-    password: ""
+    username: '',
+    password: ''
   };
 
   constructor(
@@ -30,12 +30,12 @@ export class LoginComponent extends BaseComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    console.log("Logging in User......");
+    console.log('Logging in User......');
     const currentUser = {
-      jwtToken: "xyz"
+      jwtToken: 'xyz'
     };
-    sessionStorage.setItem("currentUser", JSON.stringify(currentUser));
-    this.setInitialLanguage("en");
+    sessionStorage.setItem('currentUser', JSON.stringify(currentUser));
+    this.setInitialLanguage('en');
     this.navigateToDashboard();
   }
 
@@ -43,9 +43,9 @@ export class LoginComponent extends BaseComponent implements OnInit {
     this.languageService
       .getLanguageProperties(code)
       .subscribe((language: any) => {
-        console.log("Language properties file loaded: ", language);
+        console.log('Language properties file loaded: ', language);
         if (language) {
-          localStorage.setItem("language", JSON.stringify(language));
+          localStorage.setItem('language', JSON.stringify(language));
           this.setUserLanguage();
           console.log(this.language.labels);
           this.navigateToDashboard();
@@ -56,6 +56,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
   }
 
   navigateToDashboard() {
-    this.router.navigate(["./dashboard"]);
+    this.router.navigate(['/dashboard']);
   }
 }

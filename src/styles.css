@@ -24,3 +24,6 @@ app-navigation-bar .mat-drawer-content {
      height: -webkit-fill-available !important;
 }
 */
+body{
+    overflow-x: hidden;
+}

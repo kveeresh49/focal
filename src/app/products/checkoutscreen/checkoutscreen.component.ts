@@ -12,6 +12,7 @@ export class CheckoutscreenComponent implements OnInit {
 
   public productJson:any;
   public addressJson = addressJson;
+  public isActive:boolean = true;
 
   elements: any = [
     {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
@@ -35,6 +36,7 @@ export class CheckoutscreenComponent implements OnInit {
   tridePrice: number;
   savings: number;
   total: number;
+  placeOrder: boolean = false;
 
   constructor(private commonProductService:CommonProductService){
     
@@ -73,18 +75,26 @@ export class CheckoutscreenComponent implements OnInit {
 
       case 0: {
         this.selectedTab = this.breadcrum[index];
+        this.isActive = true;
+        this.placeOrder = false;
         break;
       }
       case 1: {
         this.selectedTab = this.breadcrum[index];
+        this.isActive = true;
+        this.placeOrder= false;
         break;
       }
       case 2: {
         this.selectedTab = this.breadcrum[index];
+        this.isActive = true;
+        this.placeOrder = true;
         break;
       }
       case 3: {
         this.selectedTab = this.breadcrum[index];
+        this.isActive = false;
+        this.placeOrder = false;
         break;
       }
     }
