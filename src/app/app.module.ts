@@ -16,6 +16,7 @@ import { FilterPipe } from './products/product-list/filter.pipe';
 import { CheckoutscreenComponent } from './products/checkoutscreen/checkoutscreen.component';
 import { OrdersComponent } from './products/orders/orders.component';
 import { MatStepperModule } from '@angular/material/stepper';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { MatStepperModule } from '@angular/material/stepper';
     LayoutModule,
     MaterialAppModule,
     NgxPaginationModule,
-    MatStepperModule
+    MatStepperModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

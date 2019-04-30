@@ -60,52 +60,65 @@ export const productlistJson = [
 export const orderJson = [
 
     {
-        productName: 'Acedasine',
-        quantity: 1,
-        tridePrice: 10,
-        savings: '',
-        netPrice: 600,
-        productInformation: 'Product Information',
-        discount: 20,
-        color: 'red',
-        promotions: '',
-        noDisCount: 'noDisCount',
-        status: 'shipped',
+
+        Order : '#0928789',
+        noProducts :2 ,
+        totalPrice :  45,
+        ordersList : [
+            {
+                productName: 'Acedasine',
+                quantity: 3,
+                tridePrice: 10,
+                savings: '',
+                netPrice: 27,
+                productInformation: 'Product Information',
+                discount: 20,
+                color: 'red',
+                promotions: '',
+                noDisCount: 'noDisCount',
+                status: 'shipped',
+            },
+            {
+                productName: 'Affrin',
+                quantity: 1,
+                tridePrice: 18,
+                savings: '',
+                netPrice: 600,
+                productInformation: 'Product Information',
+                discount: 10,
+                color: 'green',
+                promotions: 'promotions',
+                noDisCount: 'noDisCount',
+                status: 'shipped',
+        
+        
+            },
+        ]
+        
     },
     {
-        productName: 'Affrin',
-        quantity: 2,
-        tridePrice: 20,
-        savings: '',
-        netPrice: 600,
-        productInformation: 'Product Information',
-        discount: 10,
-        color: 'green',
-        promotions: 'promotions',
-        noDisCount: 'noDisCount',
-        status: 'shipped',
-
-
-    },
-    {
+        Order : '#0928789',
+        noProducts : 2,
+        totalPrice :  102,
+        ordersList : [
+            {
         productName: 'Crosin',
         quantity: 2,
         tridePrice: 30,
         savings: '',
-        netPrice: 600,
+        netPrice: 54,
         productInformation: 'Product Information',
         discount: 20,
         color: 'blue',
         promotions: 'yes',
         status: 'shipped',
-
     },
     {
         productName: 'Affrin',
-        quantity: 2,
-        tridePrice: 20,
+        quantity: 4,
+        tridePrice: 72,
         savings: '',
-        netPrice: 600,
+        netPrice: 54,
         productInformation: 'Product Information',
         discount: 10,
         color: 'green',
@@ -113,6 +126,8 @@ export const orderJson = [
         status: 'shipped',
 
     },
+]
+ }
 
 ]
 

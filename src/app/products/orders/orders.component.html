@@ -3,13 +3,14 @@
 </button> -->
 
 
+
 <div style="text-align: center;position: relative;margin-left:62px;    margin-left: 275px;
 width: 65%;">
 <span style="width:0;height: 0%;border-bottom: 40px solid #ffff;border-right:40px solid transparent; position: absolute; left:4px;margin-left: 71px">
 </span>
 
 <div class="sample"style="z-index: 10;">
-    <div class="a1" style="background-color: #fff">
+    <div class="borderTop" style="background-color: #fff">
 
       <span class="ml-3 mr-4" [ngClass]="{active:selectedTab=='allorders'}" (click)="selectedTab='allorders'">
         All Orders
@@ -23,146 +24,54 @@ width: 65%;">
 
 </div>
 
-<mat-vertical-stepper>
-    <mat-step label="Step 1">
-        <ng-template matStepLabel>
-          <div class="col-md-12">
-            <div class="row">
-                    <div class="ml-2">Order #0928789 <span class="ml-2">
+<span class="leftTrangle">
+  </span>
+
+
+
+<div style="padding-top:7%">
+
+<mat-vertical-stepper  >
+    <mat-step *ngFor="let productJson of productJson;let i=index" label="'i'">
+      <div>
+        <ng-template matStepLabel   class="col-md-12">
+          <div>
+            <div class="row" style="position: absolute;
+            margin-top: -8px;">
+                    <div class="ml-2"> Order {{productJson.Order}} <span class="ml-2">
                         |
                     </span></div> 
-                    <div class="ml-2"> 4 Products  <span class="ml-2">
+                    <div class="ml-2"> {{productJson.noProducts}} Products <span class="ml-2">
                         |
                     </span></div> 
-                    <div class="ml-2"> $2400 </div>
+                    <div class="ml-2"> {{productJson.totalPrice | currency}} </div>
             </div>
             
           </div></ng-template>
-        <div class="col-md-12" style="padding-top:15px !important">
-            <div class="col-md-12">
-              <!-- <div class="row" style="font-size: 13px;">
-                <div class="col-md-2"></div>
-                <div class="col-md-3">Product Name/Code/Pack</div>
-                <div class="col-md-1">Quantity</div>
-                <div class="col-md-2">Net price</div>
-                <div class="col-md-1">Savings</div>
-                <div class="col-md-2">Net price</div>
-              </div> -->
-              <div class="col-md-12" *ngFor="let productJson of productJson;let i=index">
-                <div class="col-md-12">
-                  <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
-                    <div class="row">
-                      <div class="col-md-2"> <img style="width:100px;height: 100px;"
-                          src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                      <div class="col-md-3">{{productJson.productName}}</div>
-                      <div class="col-md-2" >{{productJson.quantity}}</div>
-                      <div class="col-md-2">{{productJson.netprice | currency}}</div>
-                      <div class="col-md-2">{{productJson.status}}</div>
-                        <!-- <div class="col-md-2">{{productJson.trideprice | currency}}</div>
-                        <div class="col-md-1">{{productJson.savings | currency}}</div>
-                        <div class="col-md-1">{{productJson.netprice | currency}}</div> -->
+          <div class="row" class="orderListButtonAllignmet">
+              <button class="btn btn-primary orderListButton" (click)="reOrder(productJson.ordersList,i)">Reorder</button>
+          </div>
+          <div class="col-md-12" *ngFor="let itemsOrder of productJson.ordersList;let i=index">
+              <div class="row mt-3" >
+                  <div class="col-md-12">
+                      <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
+                        <div class="row">
+                          <div class="col-md-2"> <img style="width:100px;height: 100px;"
+                              src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
+                          <div class="col-md-3">{{itemsOrder.productName}}</div>
+                          <div class="col-md-2" >{{itemsOrder.quantity}}</div>
+                          <div class="col-md-2">{{itemsOrder.netPrice | currency}}</div>
+                          <div class="col-md-2">{{itemsOrder.status}}</div>
+                            <!-- <div class="col-md-2">{{productJson.trideprice | currency}}</div>
+                            <div class="col-md-1">{{productJson.savings | currency}}</div>
+                            <div class="col-md-1">{{productJson.netprice | currency}}</div> -->
+                        </div>
+                        </mat-card>
                     </div>
-                    </mat-card>
-                </div>
               </div>
-
+              
             </div>
-          </div>
-    </mat-step>
-    <mat-step label="Step 2">
-        <ng-template matStepLabel>
-        <div class="col-md-12">
-          <div class="row">
-                  <div class="ml-2">Order #0928789 <span class="ml-2">
-                      |
-                  </span></div> 
-                  <div class="ml-2"> 4 Products  <span class="ml-2">
-                      |
-                  </span></div> 
-                  <div class="ml-2"> $2400 </div>
-                  <!-- <div class="float:right"><button>Reorder</button></div> -->
-          </div>
-          
-        </div></ng-template>
-      <div class="col-md-12" style="padding-top:15px !important">
-          <div class="col-md-12">
-            <!-- <div class="row" style="font-size: 13px;">
-              <div class="col-md-2"></div>
-              <div class="col-md-3">Product Name/Code/Pack</div>
-              <div class="col-md-1">Quantity</div>
-              <div class="col-md-2">Net price</div>
-              <div class="col-md-1">Savings</div>
-              <div class="col-md-2">Net price</div>
-            </div> -->
-            <div class="col-md-12" *ngFor="let productJson of productJson;let i=index">
-              <div class="col-md-12">
-                <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
-                  <div class="row">
-                    <div class="col-md-2"> <img style="width:100px;height: 100px;"
-                        src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                    <div class="col-md-3">{{productJson.productName}}</div>
-                    <div class="col-md-2" >{{productJson.quantity}}</div>
-                    <div class="col-md-2">{{productJson.netprice | currency}}</div>
-                    <div class="col-md-2">{{productJson.status}}</div>
-                      <!-- <div class="col-md-2">{{productJson.trideprice | currency}}</div>
-                      <div class="col-md-1">{{productJson.savings | currency}}</div>
-                      <div class="col-md-1">{{productJson.netprice | currency}}</div> -->
-                  </div>
-                  </mat-card>
-              </div>
-            </div>
-
-          </div>
         </div>
     </mat-step>
   </mat-vertical-stepper>
-<!-- <mat-vertical-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="firstFormGroup">
-    <ng-template matStepLabel>Fill out your name</ng-template>
-    <mat-form-field>
-        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
-          <div class="col-md-12" style="padding-top:15px !important">
-            <div class="col-md-12">
-              <div class="row" style="font-size: 13px;">
-                <div class="col-md-2"></div>
-                <div class="col-md-3">Product Name/Code/Pack</div>
-                <div class="col-md-1">Quantity</div>
-                <div class="col-md-2">Tride Price</div>
-                <div class="col-md-1">Savings</div>
-                <div class="col-md-2">Net price</div>
-              </div>
-              <div class="col-md-12" *ngFor="let productJson of productJson;let i=index">
-
-                <div class="col-md-12">
-                  <mat-card class="a2"  [ngStyle]="{'border-left-color':productJson.color}">
-                    <div class="row">
-                      <div class="col-md-2"> <img style="width:100px;height: 100px;"
-                          src="https://cdn.pixabay.com/photo/2015/11/06/15/13/internet-1028794__340.jpg"></div>
-                      <div class="col-md-3">{{productJson.productName}}</div>
-                      <div class="col-md-2"><input type="text" class="form-control" [(ngModel)]="productJson.quantity" (ngModelChange)="onChange($event,productJson)" id="search-input"
-                        mdbInput></div>
-                        <div class="col-md-2">{{productJson.trideprice | currency}}</div>
-                        <div class="col-md-1">{{productJson.savings | currency}}</div>
-                        <div class="col-md-1">{{productJson.netprice | currency}}</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div style="cursor: pointer;    float: right !important;"
-                         >
-                          RemoveItems
-                        </div>
-                      </div>
-
-                    </div>
-                    </mat-card>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        <!-- <mat-tab label="PayMent ">
-          <div class="example-large-box mat-elevation-z4">
-
-          </div>
-        </mat-tab> -->
-    
+</div>

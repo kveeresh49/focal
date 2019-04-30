@@ -3,6 +3,8 @@ import { Sort } from '@angular/material';
 import { productlistJson } from './product-list';
 import { CommonProductService } from '../common-product.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { RestApiService } from 'src/app/services/rest-api.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -17,7 +19,7 @@ export class ProductListComponent implements OnInit {
   public isDisabled = true;
   
 
-  constructor(public commonProductService: CommonProductService, private route: Router) {
+  constructor(public commonProductService: CommonProductService, private route: Router,private toastr: ToastrService,private restApi :RestApiService) {
     this.productJson = productlistJson.slice();
   }
 
@@ -43,10 +45,9 @@ export class ProductListComponent implements OnInit {
 
       });
     }
-    
     // this.commonProductService.addCartSubject.next(items);
     console.log(this.commonProductService.addCartItems);
-    alert( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`);
+    this.toastr.success( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`);
     this.commonProductService.addCartSubject.next(1);
 
   }
@@ -79,6 +80,14 @@ export class ProductListComponent implements OnInit {
   navigationClick(navigationText){
     this.selectedTab = navigationText;
    
+  }
+
+  // ApiCalls 
+
+  getProductList() {
+    this.restApi.getProductListDetails().subscribe((data) => {
+      console.log(data)
+    })
   }
 
 

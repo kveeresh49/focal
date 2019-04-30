@@ -15,14 +15,38 @@ table {
 
 }
 
-.a1{
-background-color: #fff;
-border: 1px solid transparent;
-width: 85%;
-text-align: center;
-margin: 0 auto;
-border-radius: 25px;
-margin-top: 19px;
+.orderListButton {
+
+  border-radius:15px;
+  background-color: #26a69a;
+  border-color: #26a69a;;
+
+}
+
+.orderListButtonAllignmet {
+  position: absolute;
+  right: 82px;
+  top: -50px;
+}
+
+
+.leftTrangle {
+  width: 0;
+    height: 0;
+    border-bottom: 40px solid #ffff;
+    border-right: 40px solid transparent;
+    position: absolute;
+    left: 73px;
+    z-index: 12 !important;
+}
+
+.borderTop{
+  border: 1px solid transparent;
+  width: 73%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 25px;
+  margin-top: 13px;
 }
 
 .sample {
