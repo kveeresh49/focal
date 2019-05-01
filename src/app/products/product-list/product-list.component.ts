@@ -12,22 +12,24 @@ import { RestApiService } from 'src/app/services/rest-api.service';
 })
 export class ProductListComponent implements OnInit {
   public searchKey: any;
-  public productJson = [];
+  public productJson :any;
   public quantity: any;
   public searchText: any;
   public selectedTab: any;
   public isDisabled = true;
   
 
-  constructor(public commonProductService: CommonProductService, private route: Router,private toastr: ToastrService,private restApi :RestApiService) {
-    this.productJson = productlistJson.slice();
+  constructor(public commonProductService: CommonProductService, private route: Router,
+              private toastr: ToastrService,private restApi : RestApiService) {
+   // this.productJson = productlistJson.slice();
   }
 
   ngOnInit() {
     // this.productJson.quantity = this.quantity;
     this.selectedTab = 'product';
-    this.getCalculation();
-    this.getData();
+   // this.getCalculation();
+   // this.getData();
+    this.getProductList();
   }
 
   addCart(items, index) {
@@ -62,7 +64,6 @@ export class ProductListComponent implements OnInit {
 
 
   getCalculation() {
-
     if (this.productJson.length !== 0) {
       this.commonProductService.savingCalculation(this.productJson);
     }
@@ -86,7 +87,9 @@ export class ProductListComponent implements OnInit {
 
   getProductList() {
     this.restApi.getProductListDetails().subscribe((data) => {
-      console.log(data)
+      this.productJson = data;
+      console.log(this.productJson);
+      this.getCalculation();
     })
   }
 

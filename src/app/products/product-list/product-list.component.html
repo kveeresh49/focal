@@ -10,20 +10,20 @@ width: 100%;">
 </span>
 
 <div class="sample"style="z-index: 10;">
-    <div class="a1" style="background-color: #fff">
+    <div class="productListSubHeader">
 
-      <span class="mr-3" [ngClass]="{active:selectedTab=='product'}" (click)="navigationClick('product')">
+      <span class="mr-3 cursor" [ngClass]="{active:selectedTab=='product'}" (click)="navigationClick('product')">
         All Products
       </span>
-      <span class=" mr-3" [ngClass]="{active:selectedTab=='promotions'}" (click)="navigationClick('promotions')">
+      <span class=" mr-3 cursor" [ngClass]="{active:selectedTab=='promotions'}" (click)="navigationClick('promotions')">
           Promotions
         </span>
-        <span class="mr-3" [ngClass]="{active:selectedTab=='discount'}" (click)="navigationClick('discount')">
+        <span class="mr-3 cursor" [ngClass]="{active:selectedTab=='discount'}" (click)="navigationClick('discount')">
             No Discount
           </span>
 
-          <span class="mr-3" [ngClass]="{active:selectedTab=='avalible'}" (click)="navigationClick('avalible')">
-              Not Avalible
+          <span class="mr-3 cursor" [ngClass]="{active:selectedTab=='avalible'}" (click)="navigationClick('avalible')">
+              Not Avaliable
             </span>
       </div>
 
@@ -96,8 +96,6 @@ width: 100%;">
        <div class="col-md-5" style="text-align: center;font-size: 13px" *ngIf="productJson.quantity === null || productJson.quantity === ''">
           Enter quantity to generate price details
       </div>
-
-
 
      </div>
      </mat-card>

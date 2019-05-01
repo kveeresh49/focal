@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonProductService } from '../common-product.service';
 import { addressJson } from '../product-list/product-list';
+import { RestApiService } from 'src/app/services/rest-api.service';
 
 
 
@@ -11,7 +12,7 @@ import { addressJson } from '../product-list/product-list';
 export class CheckoutscreenComponent implements OnInit {
 
   public productJson:any;
-  public addressJson = addressJson;
+  public addressJson: any;
   public isActive:boolean = true;
 
   elements: any = [
@@ -38,7 +39,7 @@ export class CheckoutscreenComponent implements OnInit {
   total: number;
   placeOrder: boolean = false;
 
-  constructor(private commonProductService:CommonProductService){
+  constructor(private commonProductService: CommonProductService, private restApi: RestApiService){
     
   }
 
@@ -47,6 +48,7 @@ export class CheckoutscreenComponent implements OnInit {
     this.selectedTab = this.breadcrum[0];
     console.log(this.commonProductService.addCartItems);
     this.getTotalPriceCalculation();
+    this.getAddressJsonList();
   }
 
   removeItems(items,i){
@@ -122,6 +124,14 @@ export class CheckoutscreenComponent implements OnInit {
     });
     this.total =  this.tridePrice - this.savings;
 
+  }
+
+  
+  getAddressJsonList() {
+    this.restApi.getAddressOrderList().subscribe((data) => {
+     this.addressJson = data;
+
+    })
   }
 
  }

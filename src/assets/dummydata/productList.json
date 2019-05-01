@@ -1,0 +1,50 @@
+[
+    {
+        "productName": "Acedasine",
+        "quantity": null,
+        "tridePrice": 10,
+        "savings": "",
+        "netPrice": null,
+        "productInformation": "Product Information",
+        "discount": 20,
+        "color": "red",
+        "promotions": "",
+        "noDisCount": "noDisCount"
+    },
+    {
+        "productName": "Affrin",
+        "quantity": null,
+        "tridePrice": 20,
+        "savings": "",
+        "netPrice": 600,
+        "productInformation": "Product Information",
+        "discount": 10,
+        "color": "green",
+        "promotions": "promotions",
+        "noDisCount": "noDisCount",
+        "disabled": true
+    },
+    {
+        "productName": "Crosin",
+        "quantity": null,
+        "tridePrice": 30,
+        "savings": "",
+        "netPrice": null,
+        "productInformation": "Product Information",
+        "discount": 20,
+        "color": "blue",
+        "promotions": "yes",
+        "disabled": true
+    },
+    {
+        "productName": "Affrin",
+        "quantity": 1,
+        "tridePrice": 20,
+        "savings": "",
+        "netPrice": null,
+        "productInformation": "Product Information",
+        "discount": 10,
+        "color": "green",
+        "promotions": "yes"
+    }
+]

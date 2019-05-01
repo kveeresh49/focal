@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonProductService } from '../common-product.service';
 import { productlistJson,orderJson } from '../product-list/product-list';
 import { ToastrService } from 'ngx-toastr';
+import { RestApiService } from 'src/app/services/rest-api.service';
 
 @Component({
   selector: 'app-orders',
@@ -13,18 +14,17 @@ export class OrdersComponent implements OnInit {
 
   isLinear = false;
   newDate = new Date();
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
-  productJson =  orderJson;
+  productJson : any;
   selectedTab: string;
 
 
-  constructor(private commonProductService: CommonProductService, private _formBuilder: FormBuilder,private toastr: ToastrService) {
-   // this.productJson = this.commonProductService.addCartItems;
+  constructor(private commonProductService: CommonProductService, private fb: FormBuilder,
+              private toastr: ToastrService, private restApi: RestApiService) {
   }
 
   ngOnInit() {
     this.selectedTab = 'allorders' ;
+    this.getDetails();
   }
 
   reOrder(items,index) {
@@ -47,7 +47,15 @@ export class OrdersComponent implements OnInit {
     console.log(this.commonProductService.addCartItems);
     this.toastr.success( `${this.commonProductService.addCartItems.length} no of Items Added in Cart`);
     this.commonProductService.addCartSubject.next(1);
+  }
 
+
+  // Api call getting the Data from Server  -- Order Details
+
+  getDetails() {
+    this.restApi.getOrderDetails().subscribe(data => {
+      this.productJson = data;
+    });
 
   }
 

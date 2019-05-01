@@ -1,11 +1,16 @@
     
+	
 <app-login *ngIf="!isAuthenticated()"></app-login>
 <div *ngIf="isAuthenticated()">
 			<app-navigation-bar></app-navigation-bar>
 			<div class="container">
+					
 					<router-outlet>
 						</router-outlet>
+						<app-spinner></app-spinner>
 			</div>
 			
 				
 			</div>
+
+		
