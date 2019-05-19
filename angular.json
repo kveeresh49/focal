@@ -20,12 +20,14 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/assets/dummydata"
             ],
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/assets/css/main.css",
+              "node_modules/ngx-toastr/toastr.css",
               "src/theme.scss"
             ],
             "scripts": [],

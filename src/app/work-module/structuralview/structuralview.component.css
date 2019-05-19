@@ -1,0 +1,18 @@
+.divBlock{
+    width: 230px;
+    height: 102px;
+    align-items: center;
+    /* content: initial; */
+    align-content: center;
+    text-align: center;
+    padding-top: 36px;
+    background-color:blue;
+    color: azure;
+}
+
+
+.matStyle {
+    border: 1px solid black;
+    border-left-width: 9px;
+    width: 239px;
+}

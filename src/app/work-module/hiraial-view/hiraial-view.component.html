@@ -1,0 +1,42 @@
+
+
+<div class="col-md-12">
+
+    <div  class="mt-4 mr-4">
+            <label class="mr-4">
+                    <button type="button"  [ngClass]="{active:selectedTab=='Structural'}" class="btn btn-secondary" style="cursor: pointer;" (click)="toggleClick('Structural')">Structural view</button>
+            </label>
+            <label>
+                    <button type="button"  [ngClass]="{active:selectedTab=='Hierarchical'}"class="btn btn-secondary" style="cursor: pointer;" (click)="toggleClick('Hierarchical')">Hierarchical view</button>
+            </label>
+    </div>
+        
+</div>
+
+
+
+<div class="content col-md-12 mt-4" *ngIf="!show">
+    <div class="tree-list">
+        <ejs-treeview  #tree id="tree1" [fields]='field' [allowDragAndDrop]='allowDragAndDrop'
+            (nodeDragStop)="onDragStop($event)" (nodeSelected)='nodeSelected($event)'></ejs-treeview>
+    </div>
+</div>
+
+<!-- <div class="col-lg-4 tree3-data">
+    <h4>ListView</h4>
+    <div class="content">
+        <div class="tree-list">
+           <ejs-listview class="e-droppable" id="list"  #list="" [dataSource]=[] cssClass="custom-list"  >
+             <ng-template #template let-dataSource="">
+               <div><span>{{dataSource.text}}</span><span id="{{dataSource.iconId}}" class="{{dataSource.class}}"></span></div>
+             </ng-template>
+           </ejs-listview>
+        </div>
+    </div>
+</div> -->
+<div id="overlay" >
+</div>
+
+<div class="col-md-12" *ngIf="show">
+        <app-structuralview></app-structuralview>
+</div>

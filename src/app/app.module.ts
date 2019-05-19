@@ -20,6 +20,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { HttpConfigInterceptor } from './services/products.interceptor';
 import { SpinnerComponent } from './services/spinner/spinner.component';
 
+import { WorkModuleModule } from './work-module/work-module.module';
+//import { ListViewModule } from '@syncfusion/ej2-angular-lists';
+
+// import { TreeViewModule } from '@syncfusion/ej2-angular-lists';
+
+ //import { TreeViewModule  } from '@syncfusion/ej2-angular-navigations';
 
 
 @NgModule({
@@ -32,15 +38,18 @@ import { SpinnerComponent } from './services/spinner/spinner.component';
     FilterPipe,
     CheckoutscreenComponent,
     OrdersComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    
   ],
   imports: [
     BrowserModule,
     NgbModule,
+    WorkModuleModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    // TreeViewModule,
     FormsModule,
     LayoutModule,
     MaterialAppModule,
